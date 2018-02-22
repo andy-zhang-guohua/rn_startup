@@ -19,8 +19,8 @@ const instructions = Platform.select({
 	'2018-02-22:开始学习React Native各种功能',
 });
 
-const alertOnButtonClick = () => {
-  Alert.alert('点击按钮事件');  
+const alertOnButtonClick = (event) => { 
+  Alert.alert('点击按钮事件,按钮 ID =' + event.nativeEvent.target);    
 };
 
 class MainScreen extends Component {
@@ -40,9 +40,10 @@ class MainScreen extends Component {
         <Text style={styles.instructions}>
           如果你已有账号,请: 
         </Text>			
-		<Button onPress={()=>{
-				alertOnButtonClick();
-				navigate('Login');}			
+		<Button onPress={(event)=>{
+				alertOnButtonClick(event);
+				navigate('Login');
+				}
 			}
 			color = '#841584'
 			title="登录" accessibilityLabel="登录"
@@ -50,8 +51,8 @@ class MainScreen extends Component {
         <Text style={styles.instructions}>
           如果你还没有账号,请: 
         </Text>		
-		<Button onPress={()=>{
-				alertOnButtonClick();
+		<Button onPress={(event)=>{
+				alertOnButtonClick(event);
 				navigate('Register');}			
 			}
 			color = '#841584'
