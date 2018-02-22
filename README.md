@@ -62,5 +62,8 @@ react-native: 0.53.3
 	react-devtools依赖于electron，而electron需要到国外服务器下载二进制包，所以国内用户这一步很可能会卡住。
 	此时请在环境变量中添加electron专用的国内镜像源：ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"，
 	然后再尝试安装react-devtools。
+
+10. 实现 Login 页面布局
+	TODO : 尚未实现数据获取，验证，用户登录逻辑
 	
 	

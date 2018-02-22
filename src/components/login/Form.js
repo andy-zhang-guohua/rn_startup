@@ -21,38 +21,27 @@ export default class Form extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-			showPass: true,
-			press: false,
+			showPassword: false,
 		};
-		this.showPass = this.showPass.bind(this);
+		this.toggleShowPassword = this.toggleShowPassword.bind(this);
 	}
 
-	showPass() {
-  this.state.press === false ? this.setState({ showPass: false, press: true }) :this.setState({ showPass: true, press: false });
-  }
+	toggleShowPassword() {
+		this.state.showPassword === false ? this.setState({ showPassword: true }) :this.setState({ showPassword: false });
+	}
 
 	render() {
 		return (
-			<KeyboardAvoidingView behavior='padding'
-				style={styles.container}>
+			<KeyboardAvoidingView behavior='padding' style={styles.container}>
 				<UserInput source={imageUsername}
-					placeholder='用户名'
-					autoCapitalize={'none'}
-					returnKeyType={'done'}
-					autoCorrect={false} />
-				<UserInput source={imagePassword}
-					secureTextEntry={this.state.showPass}
-					placeholder='密码'
-					returnKeyType={'done'}
-					autoCapitalize={'none'}
-					autoCorrect={false} />
-					<TouchableOpacity
-						activeOpacity={0.7}
-						style={styles.btnEye}
-						onPress={this.showPass}
-					>
+					placeholder='用户名' autoCapitalize={'none'} returnKeyType={'done'} autoCorrect={false} />
+
+				<UserInput source={imagePassword} secureTextEntry={!this.state.showPassword}
+					placeholder='密码'	returnKeyType={'done'}	autoCapitalize={'none'}	autoCorrect={false} />
+				
+				<TouchableOpacity activeOpacity={0.7} style={styles.btnEye} onPress={this.toggleShowPassword}>
 						<Image source={eyeImg} style={styles.iconEye} />
-					</TouchableOpacity>
+				</TouchableOpacity>
 			</KeyboardAvoidingView>
 		);
 	}
