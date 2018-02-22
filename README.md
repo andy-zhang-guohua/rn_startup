@@ -13,4 +13,7 @@ react-native: 0.53.3
 2. Button在容器中的布局
 3. Button事件
    1. 点击按钮时切换到另外一个页面:登录页面/注册页面
-   2. 问题 : Button 的 style 怎么设置 ? 宽度，在容器内的对齐等等 
+4. Button有关问题 : Button 的 style 怎么设置 ? 宽度，在容器内的对齐等等
+5. 点击按钮时切换到另外一个页面:登录页面/注册页面
+	1. 参考文档 npm install --save react-navigation
+	2. 安装 react-navigation : + react-navigation@1.1.2
