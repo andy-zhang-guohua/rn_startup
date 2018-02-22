@@ -26,6 +26,8 @@ const RootStack = StackNavigator(
 },
 {
     initialRouteName: 'Main',
+	// mode : 'card',  // card, modal
+	// headerMode : 'none' // float, screen ,none
 }  
 );
 

@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Button,
 } from 'react-native';
 
 class LoginScreen extends React.Component {
@@ -15,6 +16,10 @@ class LoginScreen extends React.Component {
         <Text style={styles.welcome}>
           这是一个用户登录页面
         </Text>       
+		<Button
+          title="登录"
+          onPress={() => this.props.navigation.navigate('UserProfile')}
+        />			
       </View>
     );
   }

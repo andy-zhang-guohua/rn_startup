@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+  Button,
   View,
+  Alert,
 } from 'react-native';
+
+const logout = () => {
+  Alert.alert('用户退出登录'); 
+};
 
 class UserProfileScreen extends React.Component {
   static navigationOptions = {
@@ -15,6 +21,13 @@ class UserProfileScreen extends React.Component {
         <Text style={styles.welcome}>
           这是一个用户个人信息页面
         </Text>       
+		<Button
+          title="退出登录"
+          onPress={() => {
+			  logout();
+			  this.props.navigation.navigate('Main');}
+			  }
+        />				
       </View>
     );
   }
