@@ -15,16 +15,16 @@ react-native: 0.53.3
 4. Button 的 style 怎么设置 : Button 没有 style 属性
 5. 基于react navigation的屏幕切换
         
-		1. 参考文档 
+	1. 参考文档 
 ```
 	https://reactnavigation.org/docs/hello-react-navigation.html
 ```	
-        2. 安装 react-navigation 
+    2. 安装 react-navigation 
 ```
 	npm install --save react-navigation	
 	// react-navigation@1.1.2
 ```	
-        3. 点击按钮时的页面切换
+    3. 点击按钮时的页面切换
 		
 6. 分屏代码模块化(ES6功能)	
     
