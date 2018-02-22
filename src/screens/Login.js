@@ -1,40 +1,23 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-} from 'react-native';
+import Logo from '../components/login/Logo';
+import Form from '../components/login/Form';
+import Wallpaper from '../components/login/Wallpaper';
+import ButtonSubmit from '../components/login/ButtonSubmit';
+import SignupSection from '../components/login/SignupSection';
 
-class LoginScreen extends React.Component {
-  static navigationOptions = {
+export default class LoginScreen extends Component {
+	static navigationOptions = {
     title: '用户登录',
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          这是一个用户登录页面
-        </Text>       
-		<Button
-          title="登录"
-          onPress={() => this.props.navigation.navigate('UserProfile')}
-        />			
-      </View>
-    );
-  }
+	};
+	
+	render() {
+		return (
+			<Wallpaper>
+				<Logo />
+				<Form />
+				<ButtonSubmit/>				
+				<SignupSection/>
+			</Wallpaper>
+		);
+	}
 }
-
-
-
-export default LoginScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    //alignItems: 'center', 
-    backgroundColor: '#F5FCFF',
-	margin: 10,
-  }, 
-});
