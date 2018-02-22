@@ -14,12 +14,14 @@ import { StackNavigator } from 'react-navigation';
 import MainScreen from './src/screens/Main.js';
 import LoginScreen from './src/screens/Login.js';
 import RegisterScreen from './src/screens/Register.js';
+import UserProfileScreen from './src/screens/UserProfile.js';
 
 
 const RootStack = StackNavigator(
 {
   Login: { screen: LoginScreen },
   Register: { screen: RegisterScreen },
+  UserProfile: { screen: UserProfileScreen },
   Main: {  screen: MainScreen  },  
 },
 {
