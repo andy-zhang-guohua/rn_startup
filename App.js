@@ -11,16 +11,15 @@ import {
   Text,
   Button,
   Alert,
-  View
+  View,
+  Navigator,
+  TouchableOpacity,  
 } from 'react-native';
-import {
-  StackNavigator,
-} from 'react-navigation';
+
 
 
 const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    '摇一摇或者按键Cmd+D出现开发人员菜单\n\n' +
+  ios: '摇一摇或者按键Cmd+D出现开发人员菜单\n\n' +
 	'2018-02-22:开始学习React Native各种功能',
   android: '连续两次按R键重新加载页面,\n' +
     '摇一摇或者按菜单键弹出开发人员菜单\n\n' +
