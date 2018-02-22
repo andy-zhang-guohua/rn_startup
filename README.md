@@ -16,7 +16,7 @@ react-native: 0.53.3
 5. 基于react navigation的屏幕切换
 	1. 参考文档 
 ```
-https://reactnavigation.org/docs/hello-react-navigation.html
+	https://reactnavigation.org/docs/hello-react-navigation.html
 ```	
 	2. 安装 react-navigation 
 ```
