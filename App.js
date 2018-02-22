@@ -36,7 +36,7 @@ export default class App extends React.Component {
 	this._beforeRun();
     return <RootStack />;
   }
-  _beforeRun(){
+  _beforeRun(){	  
 	  Alert.alert('应用程序开始执行');
   }
 }

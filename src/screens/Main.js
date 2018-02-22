@@ -20,7 +20,8 @@ const instructions = Platform.select({
 });
 
 const alertOnButtonClick = (event) => { 
-  Alert.alert('点击按钮事件,按钮 ID =' + event.nativeEvent.target);    
+	console.log('点击按钮事件,按钮 ID =' + event.nativeEvent.target);
+	Alert.alert('点击按钮事件,按钮 ID =' + event.nativeEvent.target);    
 };
 
 class MainScreen extends Component {

@@ -21,7 +21,9 @@ react-native: 0.53.3
 		Hello React Navigation : https://reactnavigation.org/docs/hello-react-navigation.html
 		StackNavigator reference : https://reactnavigation.org/docs/stack-navigator.html
 		Moving between screens : https://reactnavigation.org/docs/navigating.html
-    
+		
+		2.4 Props & States : https://unbug.gitbooks.io/react-native-training/content/23_states_&_props.html
+		2.5 Events : https://unbug.gitbooks.io/react-native-training/content/24_events.html
 	2. 安装 react-navigation 
 
 		npm install --save react-navigation	
@@ -40,3 +42,25 @@ react-native: 0.53.3
 	
 	
 	2. index.js 定义应用程序启动时直接进入 App
+
+7. 使用 Google Chrome 浏览器查看控制台输出
+	1. 应用运行时打开浏览器 http://localhost:8081/debugger-ui/ ;
+	2. Windows 平台上 Ctrl+Shift + J 打开 Chrome Developer Tools;
+	3. 切换到控制台 Console Tab ;
+	
+	** 注意 : 这里只能看到 console.log() 之类的输出，并不能使用 Chrome Developer Tools 的 Inspect 功能查看应用的控件属性和布局等信息 **
+8. Inspector 控件属性和布局
+    
+	1. 打开 Dev tools;
+	
+	2. Toggle Inspector ;
+	
+9. 安装 React Developer Tools
+	
+	npm install -g react-devtools
+	
+	react-devtools依赖于electron，而electron需要到国外服务器下载二进制包，所以国内用户这一步很可能会卡住。
+	此时请在环境变量中添加electron专用的国内镜像源：ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"，
+	然后再尝试安装react-devtools。
+	
+	
