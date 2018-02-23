@@ -8,6 +8,8 @@ import {
 	Image,
 } from 'react-native';
 
+import {dumpObject} from '../../utils/DebugUtils'
+
 export default class UserInput extends Component {
 	constructor(props) {
 		super(props);
@@ -16,6 +18,10 @@ export default class UserInput extends Component {
 	onChangeText = (text) => {
 		this.props.onChangeText(text);
 	};
+
+	update = (e) => {
+		dumpObject(e,1);
+	  };
 
 	render() {
 		return (
@@ -30,6 +36,7 @@ export default class UserInput extends Component {
 					placeholderTextColor='white'
 					underlineColorAndroid='transparent'
 					onChangeText={(text) => this.onChangeText(text)}
+					onChange={this.update}
 				/>
 			</View>
 		);
