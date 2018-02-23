@@ -16,7 +16,7 @@ import SignupSection from './SignupSection';
 
 import imageUsername from '../../images/username.png';
 import imagePassword from '../../images/password.png';
-import eyeImg from '../../images/eye_black.png';
+import imageEye from '../../images/eye_black.png';
 
 export default class Form extends Component {
 	constructor(props) {
@@ -69,8 +69,8 @@ export default class Form extends Component {
 					autoCapitalize={'none'}
 					autoCorrect={false} />
 
-				<TouchableOpacity activeOpacity={0.7} style={styles.btnEye} onPress={this.toggleShowPassword}>
-					<Image source={eyeImg} style={styles.iconEye} />
+				<TouchableOpacity activeOpacity={0.7} style={styles.buttonEye} onPress={this.toggleShowPassword}>
+					<Image source={imageEye} style={styles.iconEye} />
 				</TouchableOpacity>
 			</KeyboardAvoidingView>
 		);
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 	},
-	btnEye: {
+	buttonEye: {
 		position: 'absolute',
 		top: 55,
 		right: 28,
