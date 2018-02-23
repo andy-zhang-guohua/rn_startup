@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import { log } from '../utils/LogUtils'
 
 const instructions = Platform.select({
   ios: '摇一摇或者按键Cmd+D出现开发人员菜单\n\n' +
@@ -20,7 +21,7 @@ const instructions = Platform.select({
 });
 
 const onButtonClick = (event) => {
-  console.log('点击按钮事件,按钮 ID =' + event.nativeEvent.target);
+  log('点击按钮ID =' + event.nativeEvent.target);
 };
 
 class MainScreen extends Component {

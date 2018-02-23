@@ -14,9 +14,12 @@ import UserInput from './UserInput';
 import ButtonSubmit from './ButtonSubmit';
 import SignupSection from './SignupSection';
 
+import { log } from '../../utils/LogUtils'
+
 import imageUsername from '../../images/username.png';
 import imagePassword from '../../images/password.png';
 import imageEye from '../../images/eye_black.png';
+
 
 export default class Form extends Component {
 	constructor(props) {
@@ -34,15 +37,15 @@ export default class Form extends Component {
 	};
 
 	onUsernameChange = (text) => {
-		console.log('用户名更新 : ' + text);
-		
+		log('用户名更新 : ' + text);
+
 		this.setState({
 			username: text
 		})
 	};
 
 	onPasswordChange = (text) => {
-		console.log('密码更新 : ' + text);
+		log('密码更新 : ' + text);
 
 		this.setState({
 			password: text

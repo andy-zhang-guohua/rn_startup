@@ -8,20 +8,24 @@ import {
 	Image,
 } from 'react-native';
 
-import {dumpObject} from '../../utils/DebugUtils'
+import { dumpObject } from '../../utils/DebugUtils'
 
 export default class UserInput extends Component {
 	constructor(props) {
 		super(props);
+
+		this._onChangeText = this._onChangeText.bind(this);
+		this._onChange = this._onChange.bind(this);
 	}
 
-	onChangeText = (text) => {
+	_onChangeText = (text) => {
 		this.props.onChangeText(text);
 	};
 
-	update = (e) => {
-		dumpObject(e,1);
-	  };
+	_onChange = (e) => {
+		// 该方法这里仅用作调试用途，用于输出事件对象e
+		dumpObject(e, 1);
+	};
 
 	render() {
 		return (
@@ -35,8 +39,8 @@ export default class UserInput extends Component {
 					returnKeyType={this.props.returnKeyType}
 					placeholderTextColor='white'
 					underlineColorAndroid='transparent'
-					onChangeText={(text) => this.onChangeText(text)}
-					onChange={this.update}
+					onChangeText={(text) => this._onChangeText(text)}
+					onChange={(e) => this._onChange(e)}
 				/>
 			</View>
 		);
@@ -52,14 +56,16 @@ UserInput.propTypes = {
 	returnKeyType: PropTypes.string,
 };
 
+const MARGIN_H = 40;// 水平方向左右两边的边缘宽度
+const HEIGHT = 40; // 控件高度
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
 	input: {
 		backgroundColor: 'rgba(255, 255, 255, 0.4)',
-		width: DEVICE_WIDTH - 40,
-		height: 40,
+		width: DEVICE_WIDTH - MARGIN_H,
+		height: HEIGHT,
 		marginHorizontal: 20,
 		paddingLeft: 45,
 		borderRadius: 20,

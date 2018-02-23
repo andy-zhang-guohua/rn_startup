@@ -16,6 +16,7 @@ import LoginScreen from './src/screens/Login.js';
 import RegisterScreen from './src/screens/Register.js';
 import UserProfileScreen from './src/screens/UserProfile.js';
 
+import { log } from './src/utils/LogUtils'
 
 const RootStack = StackNavigator(
   {
@@ -37,7 +38,7 @@ export default class App extends React.Component {
     return <RootStack />;
   }
   _beforeRun() {
-    console.log('应用程序开始执行');
+    log('应用程序开始执行');
   }
 }
 
