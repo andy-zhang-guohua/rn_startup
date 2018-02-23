@@ -27,14 +27,18 @@ export default class Form extends Component {
 			username: '',
 			password: '',
 		};
-		this.toggleShowPassword = this.toggleShowPassword.bind(this);
+		this._toggleShowPassword = this._toggleShowPassword.bind(this);
+
+		this._onUsernameChange = this._onUsernameChange.bind(this);
+		
+		this._onPasswordChange = this._onPasswordChange.bind(this);
 	};
 
-	toggleShowPassword() {
+	_toggleShowPassword() {
 		this.state.showPassword === false ? this.setState({ showPassword: true }) : this.setState({ showPassword: false });
 	};
 
-	onUsernameChange = (text) => {
+	_onUsernameChange = (text) => {
 		log('用户名更新 : ' + text);
 
 		this.setState({
@@ -42,7 +46,7 @@ export default class Form extends Component {
 		})
 	};
 
-	onPasswordChange = (text) => {
+	_onPasswordChange = (text) => {
 		log('密码更新 : ' + text);
 
 		this.setState({
@@ -55,7 +59,7 @@ export default class Form extends Component {
 			<View style={styles.container}>
 				<View>
 					<UserInput
-						onChangeText={this.onUsernameChange}
+						onChangeText={this._onUsernameChange}
 						iconSource={imageUsername}
 						placeholder='用户名'
 						autoCapitalize={'none'}
@@ -63,7 +67,7 @@ export default class Form extends Component {
 						autoCorrect={false} />
 
 					<UserInput
-						onChangeText={this.onPasswordChange}
+						onChangeText={this._onPasswordChange}
 						iconSource={imagePassword}
 						secureTextEntry={!this.state.showPassword}
 						placeholder='密码'
@@ -71,7 +75,7 @@ export default class Form extends Component {
 						autoCapitalize={'none'}
 						autoCorrect={false} />
 
-					<TouchableOpacity activeOpacity={0.7} style={styles.buttonEye} onPress={this.toggleShowPassword}>
+					<TouchableOpacity activeOpacity={0.7} style={styles.buttonEye} onPress={this._toggleShowPassword}>
 						<Image source={imageEye} style={styles.iconEye} />
 					</TouchableOpacity>
 				</View>
