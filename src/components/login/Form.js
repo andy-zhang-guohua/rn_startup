@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Dimensions from 'Dimensions';
+
 import {
 	StyleSheet,
 	KeyboardAvoidingView,
@@ -15,32 +16,61 @@ import SignupSection from './SignupSection';
 
 import imageUsername from '../../images/username.png';
 import imagePassword from '../../images/password.png';
-import eyeImg  from '../../images/eye_black.png';
+import eyeImg from '../../images/eye_black.png';
 
 export default class Form extends Component {
 	constructor(props) {
-    super(props);
-    this.state = {
+		super(props);
+		this.state = {
 			showPassword: false,
+			username: '',
+			password: '',
 		};
 		this.toggleShowPassword = this.toggleShowPassword.bind(this);
-	}
+	};
 
 	toggleShowPassword() {
-		this.state.showPassword === false ? this.setState({ showPassword: true }) :this.setState({ showPassword: false });
-	}
+		this.state.showPassword === false ? this.setState({ showPassword: true }) : this.setState({ showPassword: false });
+	};
+
+	onUsernameChange = (text) => {
+		console.log('用户名更新 : ' + text);
+		
+		this.setState({
+			username: text
+		})
+	};
+
+	onPasswordChange = (text) => {
+		console.log('密码更新 : ' + text);
+
+		this.setState({
+			password: text
+		})
+	};
 
 	render() {
 		return (
 			<KeyboardAvoidingView behavior='padding' style={styles.container}>
-				<UserInput source={imageUsername}
-					placeholder='用户名' autoCapitalize={'none'} returnKeyType={'done'} autoCorrect={false} />
+				<UserInput
+					onChangeText={this.onUsernameChange}
+					iconSource={imageUsername}
+					placeholder='用户名'
+					autoCapitalize={'none'}
+					returnKeyType={'done'}
+					autoCorrect={false} />
 
-				<UserInput source={imagePassword} secureTextEntry={!this.state.showPassword}
-					placeholder='密码'	returnKeyType={'done'}	autoCapitalize={'none'}	autoCorrect={false} />
-				
+				<UserInput
+					onChangeText={this.onPasswordChange}
+					iconSource={imagePassword}
+					secureTextEntry={!this.state.showPassword}
+					placeholder='密码'
+					returnKeyType={'done'}
+					autoCapitalize={'none'}
+					autoCorrect={false} />
+
 				<TouchableOpacity activeOpacity={0.7} style={styles.btnEye} onPress={this.toggleShowPassword}>
-						<Image source={eyeImg} style={styles.iconEye} />
+					<Image source={eyeImg} style={styles.iconEye} />
 				</TouchableOpacity>
 			</KeyboardAvoidingView>
 		);
@@ -56,13 +86,13 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	btnEye: {
-    position: 'absolute',
-    top: 55,
-    right: 28,
-  },
-  iconEye: {
-    width: 25,
-    height: 25,
-    tintColor: 'rgba(0,0,0,0.2)',
-  },
+		position: 'absolute',
+		top: 55,
+		right: 28,
+	},
+	iconEye: {
+		width: 25,
+		height: 25,
+		tintColor: 'rgba(0,0,0,0.2)',
+	},
 });

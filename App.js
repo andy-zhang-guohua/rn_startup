@@ -18,26 +18,26 @@ import UserProfileScreen from './src/screens/UserProfile.js';
 
 
 const RootStack = StackNavigator(
-{
-  Login: { screen: LoginScreen },
-  Register: { screen: RegisterScreen },
-  UserProfile: { screen: UserProfileScreen },
-  Main: {  screen: MainScreen  },  
-},
-{
+  {
+    Login: { screen: LoginScreen },
+    Register: { screen: RegisterScreen },
+    UserProfile: { screen: UserProfileScreen },
+    Main: { screen: MainScreen },
+  },
+  {
     initialRouteName: 'Main',
-	// mode : 'card',  // card, modal
-	// headerMode : 'none' // float, screen ,none
-}  
+    // mode : 'card',  // card, modal
+    // headerMode : 'none' // float, screen ,none
+  }
 );
 
 export default class App extends React.Component {
   render() {
-	this._beforeRun();
+    this._beforeRun();
     return <RootStack />;
   }
-  _beforeRun(){	  
-	  Alert.alert('应用程序开始执行');
+  _beforeRun() {
+    console.log('应用程序开始执行');
   }
 }
 

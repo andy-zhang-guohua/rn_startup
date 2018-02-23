@@ -7,16 +7,16 @@ import SignupSection from '../components/login/SignupSection';
 
 export default class LoginScreen extends Component {
 	static navigationOptions = {
-    title: '用户登录',
+		title: '用户登录',
 	};
-	
+
 	render() {
 		return (
 			<Wallpaper>
 				<Logo />
 				<Form />
-				<ButtonSubmit/>				
-				<SignupSection/>
+				<ButtonSubmit />
+				<SignupSection />
 			</Wallpaper>
 		);
 	}

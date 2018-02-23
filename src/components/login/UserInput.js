@@ -9,10 +9,18 @@ import {
 } from 'react-native';
 
 export default class UserInput extends Component {
+	constructor(props) {
+		super(props);
+	}
+
+	onChangeText = (text) => {
+		this.props.onChangeText(text);
+	};
+
 	render() {
 		return (
 			<View style={styles.inputWrapper}>
-				<Image source={this.props.source} style={styles.inlineImg} />
+				<Image source={this.props.iconSource} style={styles.leadingIcon} />
 				<TextInput style={styles.input}
 					placeholder={this.props.placeholder}
 					secureTextEntry={this.props.secureTextEntry}
@@ -20,14 +28,16 @@ export default class UserInput extends Component {
 					autoCapitalize={this.props.autoCapitalize}
 					returnKeyType={this.props.returnKeyType}
 					placeholderTextColor='white'
-					underlineColorAndroid='transparent' />
+					underlineColorAndroid='transparent'
+					onChangeText={(text) => this.onChangeText(text)}
+				/>
 			</View>
 		);
 	}
 }
 
 UserInput.propTypes = {
-	source: PropTypes.number.isRequired,
+	iconSource: PropTypes.number.isRequired,
 	placeholder: PropTypes.string.isRequired,
 	secureTextEntry: PropTypes.bool,
 	autoCorrect: PropTypes.bool,
@@ -51,7 +61,7 @@ const styles = StyleSheet.create({
 	inputWrapper: {
 		flex: 1,
 	},
-	inlineImg: {
+	leadingIcon: {
 		position: 'absolute',
 		zIndex: 99,
 		width: 22,

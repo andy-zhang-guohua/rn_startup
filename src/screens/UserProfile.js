@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 const logout = () => {
-  Alert.alert('用户退出登录'); 
+  Alert.alert('用户退出登录');
 };
 
 class UserProfileScreen extends React.Component {
@@ -20,14 +20,15 @@ class UserProfileScreen extends React.Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>
           这是一个用户个人信息页面
-        </Text>       
-		<Button
+        </Text>
+        <Button
           title="退出登录"
           onPress={() => {
-			  logout();
-			  this.props.navigation.navigate('Main');}
-			  }
-        />				
+            logout();
+            this.props.navigation.navigate('Main');
+          }
+          }
+        />
       </View>
     );
   }
@@ -39,8 +40,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center', 
+    alignItems: 'center',
     backgroundColor: '#F5FCFF',
-	margin: 10,
-  }, 
+    margin: 10,
+  },
 });

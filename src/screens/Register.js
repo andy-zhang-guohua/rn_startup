@@ -14,7 +14,7 @@ class RegisterScreen extends React.Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>
           这是一个新用户注册页面
-        </Text>       
+        </Text>
       </View>
     );
   }
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center', 
+    alignItems: 'center',
     backgroundColor: '#F5FCFF',
-	margin: 10,
-  }, 
+    margin: 10,
+  },
 });
