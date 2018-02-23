@@ -1,3 +1,9 @@
+# 2018-02-23
+
+1. 开始使用 VSC 编辑 RN 项目文件(主要是要利用js文件排版自动格式化，关键字高亮等IDE,md编辑器等能力)
+2. 实验 : 自定义的UserInput组件(View内封装了一个TextInput,带图标Image效果)输入内容变化是传播到父容器组件Form
+3. 
+
 # 2018-02-22 开始React Native 功能学习项目
 
 ## 当前 React Native 版本
