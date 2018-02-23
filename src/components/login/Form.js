@@ -30,7 +30,7 @@ export default class Form extends Component {
 		this._toggleShowPassword = this._toggleShowPassword.bind(this);
 
 		this._onUsernameChange = this._onUsernameChange.bind(this);
-		
+
 		this._onPasswordChange = this._onPasswordChange.bind(this);
 	};
 
@@ -57,7 +57,7 @@ export default class Form extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<View>
+				<View style={styles.userInputContainer}>
 					<UserInput
 						onChangeText={this._onUsernameChange}
 						iconSource={imageUsername}
@@ -90,8 +90,13 @@ const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
+		flex: 3,
 		alignItems: 'center',
+		height: (40 + 8) * 3
+	},
+	userInputContainer: {
+		alignItems: 'center',
+		height: (40 + 8) * 2
 	},
 	buttonEye: {
 		position: 'absolute',

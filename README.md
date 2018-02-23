@@ -25,6 +25,13 @@
 	// https://www.npmjs.com/package/react-native-logger
 	npm install react-native-logger --save
 
+7. 键盘事件处理逻辑 : Login.js
+
+8. 组件生命周期事件处理逻辑 : Login.js
+
+9. 根据组件状态有条件显示子组件 : Login.js
+
+
 
 # 2018-02-22 开始React Native 功能学习项目
 
