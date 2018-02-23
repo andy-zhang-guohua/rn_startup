@@ -11,9 +11,19 @@
 
 3. 实验 : 一般 ES6 模块的实现和引用
 		
-		实现例子 :  模块 : DebugUtils.js， 目前被 UserInput.js 引用
+		实现例子 :  模块 : 代码调试工具 DebugUtils.js，日志输出工具 LogUtils.js, export 函数 ,
 
 4. 业务模拟实验 : UserService.js 使用 ES6 Map/Module 模拟的一个用户服务，管理用户数据，用于登录时验证用户信息和用户中心获取用户数据，
+
+5. 引入时间处理库 Moment
+
+	// https://momentjs.com/docs/
+	npm install moment --save
+
+6. 引入React Native 日志库 
+
+	// https://www.npmjs.com/package/react-native-logger
+	npm install react-native-logger --save
 
 
 # 2018-02-22 开始React Native 功能学习项目
