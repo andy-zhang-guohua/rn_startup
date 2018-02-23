@@ -3,9 +3,7 @@ import Dimensions from 'Dimensions';
 
 import {
 	StyleSheet,
-	KeyboardAvoidingView,
 	View,
-	ActivityIndicator,
 	TouchableOpacity,
 	Image,
 } from 'react-native';
@@ -54,28 +52,31 @@ export default class Form extends Component {
 
 	render() {
 		return (
-			<KeyboardAvoidingView behavior='padding' style={styles.container}>
-				<UserInput
-					onChangeText={this.onUsernameChange}
-					iconSource={imageUsername}
-					placeholder='用户名'
-					autoCapitalize={'none'}
-					returnKeyType={'done'}
-					autoCorrect={false} />
+			<View style={styles.container}>
+				<View>
+					<UserInput
+						onChangeText={this.onUsernameChange}
+						iconSource={imageUsername}
+						placeholder='用户名'
+						autoCapitalize={'none'}
+						returnKeyType={'done'}
+						autoCorrect={false} />
 
-				<UserInput
-					onChangeText={this.onPasswordChange}
-					iconSource={imagePassword}
-					secureTextEntry={!this.state.showPassword}
-					placeholder='密码'
-					returnKeyType={'done'}
-					autoCapitalize={'none'}
-					autoCorrect={false} />
+					<UserInput
+						onChangeText={this.onPasswordChange}
+						iconSource={imagePassword}
+						secureTextEntry={!this.state.showPassword}
+						placeholder='密码'
+						returnKeyType={'done'}
+						autoCapitalize={'none'}
+						autoCorrect={false} />
 
-				<TouchableOpacity activeOpacity={0.7} style={styles.buttonEye} onPress={this.toggleShowPassword}>
-					<Image source={imageEye} style={styles.iconEye} />
-				</TouchableOpacity>
-			</KeyboardAvoidingView>
+					<TouchableOpacity activeOpacity={0.7} style={styles.buttonEye} onPress={this.toggleShowPassword}>
+						<Image source={imageEye} style={styles.iconEye} />
+					</TouchableOpacity>
+				</View>
+				<ButtonSubmit />
+			</View>
 		);
 	}
 }
