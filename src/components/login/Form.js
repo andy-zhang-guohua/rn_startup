@@ -6,6 +6,7 @@ import {
 	View,
 	TouchableOpacity,
 	Image,
+	Alert,
 } from 'react-native';
 
 import UserInput from './UserInput';
@@ -13,6 +14,7 @@ import ButtonSubmit from './ButtonSubmit';
 import SignupSection from './SignupSection';
 
 import { log } from '../../utils/LogUtils'
+import { userService } from '../../services/UserService'
 
 import imageUsername from '../../images/username.png';
 import imagePassword from '../../images/password.png';
@@ -32,7 +34,7 @@ export default class Form extends Component {
 		this._toggleShowPassword = this._toggleShowPassword.bind(this);
 		this._onUsernameChange = this._onUsernameChange.bind(this);
 		this._onPasswordChange = this._onPasswordChange.bind(this);
-		this._doLogin = this._doLogin.bind(this);
+		this._onSubmitLogin = this._onSubmitLogin.bind(this);
 	};
 
 	_toggleShowPassword() {
@@ -56,15 +58,34 @@ export default class Form extends Component {
 		})
 	};
 
-	_doLogin = () => {
-		this.setState({ isProcessing: true });
+	_onSubmitLogin = () => {
+		this.setState({ isProcessing: true });//设置为处理中，主要是为了禁用提交按钮，避免重复提交
 		log('用户点击了提交按钮 : username = ' + this.state.username + ',password=' + this.state.password);
 
+		// 下面的逻辑使用定时器模拟了一个用户登录的处理过程
 		if (this.timerMockProcessing) {
 			clearTimeout(this.timerMockProcessing);
 		}
-		this.timerMockProcessing = setTimeout(() => this.setState({ isProcessing: false }), 700);
+		this.timerMockProcessing = setTimeout(() => {
+			this._processUserLogin();
+			this.setState({ isProcessing: false });
+		}, 600);
 	};
+
+	_processUserLogin() {
+		const exist = userService.existUserWithUsername(this.state.username);
+		if (!exist) {
+			Alert.alert("用户名错误");
+			return;
+		}
+
+		const match = userService.checkUser(this.state.username, this.state.password);
+		if (!match) {
+			Alert.alert("密码不匹配");
+			return;
+		}
+	};
+
 
 	componentWillUnmount() {
 		if (this.timerMockProcessing) {
@@ -99,7 +120,7 @@ export default class Form extends Component {
 						<Image source={imageEye} style={styles.iconEye} />
 					</TouchableOpacity>
 				</View>
-				<ButtonSubmit isLoading={this.state.isProcessing} onPress={this._doLogin} />
+				<ButtonSubmit isLoading={this.state.isProcessing} onPress={this._onSubmitLogin} />
 			</View>
 		);
 	}
