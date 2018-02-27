@@ -30,6 +30,7 @@ const RootStack = StackNavigator(
   }
 );
 
+
 export default class App extends Component {
   /**
    * 构造函数

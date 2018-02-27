@@ -23,18 +23,21 @@ export default class Form extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showPassword: false,
+			showPassword: false,//缺省隐藏密码
 			username: '',
 			password: '',
+			isProcessing: false // 缺省处于未提交和非处理中状态
 		};
 
 		this._toggleShowPassword = this._toggleShowPassword.bind(this);
 		this._onUsernameChange = this._onUsernameChange.bind(this);
 		this._onPasswordChange = this._onPasswordChange.bind(this);
+		this._doLogin = this._doLogin.bind(this);
 	};
 
 	_toggleShowPassword() {
-		this.state.showPassword === false ? this.setState({ showPassword: true }) : this.setState({ showPassword: false });
+		let toShowPassword = this.state.showPassword === false;
+		this.setState({ showPassword: toShowPassword });
 	};
 
 	_onUsernameChange = (text) => {
@@ -53,7 +56,25 @@ export default class Form extends Component {
 		})
 	};
 
+	_doLogin = () => {
+		this.setState({ isProcessing: true });
+		log('用户点击了提交按钮 : username = ' + this.state.username + ',password=' + this.state.password);
+
+		if (this.timerMockProcessing) {
+			clearTimeout(this.timerMockProcessing);
+		}
+		this.timerMockProcessing = setTimeout(() => this.setState({ isProcessing: false }), 700);
+	};
+
+	componentWillUnmount() {
+		if (this.timerMockProcessing) {
+			clearTimeout(this.timerMockProcessing);
+		}
+	}
+
 	render() {
+		log("表单组件正在渲染,当前状态：" + JSON.stringify(this.state));
+
 		return (
 			<View style={styles.container}>
 				<View style={styles.userInputContainer}>
@@ -78,7 +99,7 @@ export default class Form extends Component {
 						<Image source={imageEye} style={styles.iconEye} />
 					</TouchableOpacity>
 				</View>
-				<ButtonSubmit />
+				<ButtonSubmit isLoading={this.state.isProcessing} onPress={this._doLogin} />
 			</View>
 		);
 	}

@@ -8,6 +8,7 @@ import {
 	Image,
 } from 'react-native';
 
+import { log } from '../../utils/LogUtils'
 import { debuger } from '../../utils/DebugUtils'
 
 export default class UserInput extends Component {
@@ -28,6 +29,9 @@ export default class UserInput extends Component {
 	};
 
 	render() {
+		log("输入框组件正在渲染,当前状态：" + JSON.stringify(this.state));
+	
+
 		return (
 			<View style={styles.inputWrapper}>
 				<Image source={this.props.iconSource} style={styles.leadingIcon} />

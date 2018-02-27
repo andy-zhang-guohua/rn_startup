@@ -13,7 +13,7 @@ export function log(message) {
     if (!enabled)
         return;
 
-    logger.log(Moment().format(), message);
+    logger.log(Moment().format('YYYY-MM-DD HH:mm:ss'), message);
 }
 
 export function disable() {
