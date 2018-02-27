@@ -24,7 +24,7 @@ const onButtonClick = (event) => {
   log('点击按钮ID =' + event.nativeEvent.target);
 };
 
-class MainScreen extends Component {
+class MainScreen extends Component {  
   render() {
     const { navigate } = this.props.navigation;
     return (
