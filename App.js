@@ -14,6 +14,7 @@ import RegisterScreen from './src/screens/Register';
 import UserProfileScreen from './src/screens/UserProfile';
 
 import { log } from './src/utils/LogUtils'
+import { debuger } from './src/utils/DebugUtils'
 
 const RootStack = StackNavigator(
   {
@@ -41,6 +42,8 @@ export default class App extends Component {
     this._beforeRun = this._beforeRun.bind(this);
 
     this._beforeRun();
+
+    debuger.enable();
   }
   /**
    * 注意 : 如果构造函数上没有props参数，这里所定义的静态defaultProps机制不工作

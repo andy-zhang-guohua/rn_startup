@@ -5,7 +5,7 @@ import { log } from './LogUtils';
  * @param o : 要输出的对象
  * @param indent 整数类型，1表示缩进4个空白字符
  */
-export function dumpObject(o, indent) {
+function dumpObject(o, indent) {
     var objectDump = getObjectDump(o, indent);
     log("Dumping an object :\n" + objectDump);
 }
@@ -83,3 +83,38 @@ function isBoolean(val) {
         ;
 }
 
+class Debuger {
+    constructor(defaultIndent) {
+        this.indent = defaultIndent;
+
+        this.enabled = false;
+
+        // 将所有成员方法的this关键字指向当前 Debugger 对象，
+        // 主要用于解决把该Debugger对象的相应方法作为回调函数使用时
+        // 确保在方法内部this总是指向定义时的 Debugger 对象
+        this.enable = this.enable.bind(this);
+        this.disable = this.disable.bind(this);
+    }
+
+    enable() {
+        this.enabled = true;
+        log(this);
+    }
+
+    disable() {
+        this.enabled = false;
+    }
+
+
+    dumpObject(obj) {
+        if (!this.enabled)
+            return;
+
+        dumpObject(obj, this.indent);
+    }
+}
+
+const DEFAULT_INDENT_OF_LOGGING_MESSAGE = 1
+// debugger 是javascript 调试语句的专用关键字，所以我使用 debugger 作为变量名称会报告语法错误，
+// 所以这里使用 debuger 作为我自定义的调试器名称
+export let debuger = new Debuger(DEFAULT_INDENT_OF_LOGGING_MESSAGE);

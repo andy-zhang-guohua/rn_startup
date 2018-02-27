@@ -8,7 +8,7 @@ import {
 	Image,
 } from 'react-native';
 
-import { dumpObject } from '../../utils/DebugUtils'
+import { debuger } from '../../utils/DebugUtils'
 
 export default class UserInput extends Component {
 	constructor(props) {
@@ -24,7 +24,7 @@ export default class UserInput extends Component {
 
 	_onChange = (e) => {
 		// 该方法这里仅用作调试用途，用于输出事件对象e
-		dumpObject(e, 1);
+		debuger.dumpObject(e);
 	};
 
 	render() {
