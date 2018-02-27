@@ -5,16 +5,13 @@
  */
 
 import React, { Component } from 'react';
-import {
-  Alert,
-} from 'react-native';
 
 import { StackNavigator } from 'react-navigation';
 
-import MainScreen from './src/screens/Main.js';
-import LoginScreen from './src/screens/Login.js';
-import RegisterScreen from './src/screens/Register.js';
-import UserProfileScreen from './src/screens/UserProfile.js';
+import MainScreen from './src/screens/Main';
+import LoginScreen from './src/screens/Login';
+import RegisterScreen from './src/screens/Register';
+import UserProfileScreen from './src/screens/UserProfile';
 
 import { log } from './src/utils/LogUtils'
 
@@ -32,9 +29,12 @@ const RootStack = StackNavigator(
   }
 );
 
-export default class App extends React.Component {
-  render() {
+export default class App extends Component {
+  constructor() {
+    super();
     this._beforeRun();
+  }
+  render() {
     return <RootStack />;
   }
   _beforeRun() {

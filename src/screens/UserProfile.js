@@ -11,7 +11,7 @@ const logout = () => {
   Alert.alert('用户退出登录');
 };
 
-class UserProfileScreen extends React.Component {
+class UserProfileScreen extends Component {
   static navigationOptions = {
     title: '用户个人信息',
   };

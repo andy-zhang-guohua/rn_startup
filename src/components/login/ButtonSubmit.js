@@ -11,16 +11,14 @@ import {
 import spinner from '../../images/loading.gif';
 
 export default class ButtonSubmit extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			isLoading: false,
 		};
 
-		this._onPress = this._onPress.bind(this);
-
-		
+		this._onPress = this._onPress.bind(this);		
 	}
 
 	_onPress() {

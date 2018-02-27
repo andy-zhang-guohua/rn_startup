@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native';
 
-class RegisterScreen extends React.Component {
+class RegisterScreen extends Component {
   static navigationOptions = {
     title: '新用户注册',
   };
