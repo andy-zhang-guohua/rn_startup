@@ -1,3 +1,8 @@
+/**
+ * 此模块的演示目的 ：
+ *  1.有函数定义，变量定义，类定义，常量定义
+ *  2.但是仅导出类对象变量，不导出函数，类，常量  
+ */
 import { log } from './LogUtils';
 
 /**
@@ -98,7 +103,6 @@ class Debuger {
 
     enable() {
         this.enabled = true;
-        log(this);
     }
 
     disable() {

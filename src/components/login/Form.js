@@ -27,10 +27,9 @@ export default class Form extends Component {
 			username: '',
 			password: '',
 		};
+
 		this._toggleShowPassword = this._toggleShowPassword.bind(this);
-
 		this._onUsernameChange = this._onUsernameChange.bind(this);
-
 		this._onPasswordChange = this._onPasswordChange.bind(this);
 	};
 

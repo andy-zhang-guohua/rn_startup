@@ -13,7 +13,7 @@ import LoginScreen from './src/screens/Login';
 import RegisterScreen from './src/screens/Register';
 import UserProfileScreen from './src/screens/UserProfile';
 
-import { log } from './src/utils/LogUtils'
+import * as Log from './src/utils/LogUtils'
 import { debuger } from './src/utils/DebugUtils'
 
 const RootStack = StackNavigator(
@@ -41,9 +41,10 @@ export default class App extends Component {
 
     this._beforeRun = this._beforeRun.bind(this);
 
-    this._beforeRun();
-
+    Log.enable();
     debuger.enable();
+
+    this._beforeRun();
   }
   /**
    * 注意 : 如果构造函数上没有props参数，这里所定义的静态defaultProps机制不工作
@@ -56,7 +57,7 @@ export default class App extends Component {
     return <RootStack />;
   }
   _beforeRun() {
-    log('应用程序开始执行 : ' + this.props.applicationName);
+    Log.log('应用程序开始执行 : ' + this.props.applicationName);
   }
 }
 
