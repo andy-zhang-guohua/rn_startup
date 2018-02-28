@@ -6,6 +6,7 @@ import {
 
 import { log } from '../utils/LogUtils'
 import { userService } from '../services/UserService'
+import { appPreference } from '../services/AppPreferenceService'
 
 import Logo from '../components/login/Logo';
 import Form from '../components/login/Form';
@@ -75,8 +76,11 @@ export default class LoginScreen extends Component {
 			return;
 		}
 
+
+		appPreference.setUsername(username);
+
 		const { navigate } = this.props.navigation;
-		navigate('UserProfile');
+		navigate('UserProfile', { username: username });
 	};
 
 	render() {
