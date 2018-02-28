@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Dimensions from 'Dimensions';
+import * as S from 'underscore.string';
 
 import {
 	StyleSheet,
@@ -14,7 +15,6 @@ import ButtonSubmit from './ButtonSubmit';
 import SignupSection from './SignupSection';
 
 import { log } from '../../utils/LogUtils'
-import { userService } from '../../services/UserService'
 
 import imageUsername from '../../images/username.png';
 import imagePassword from '../../images/password.png';
@@ -34,7 +34,7 @@ export default class Form extends Component {
 		this._toggleShowPassword = this._toggleShowPassword.bind(this);
 		this._onUsernameChange = this._onUsernameChange.bind(this);
 		this._onPasswordChange = this._onPasswordChange.bind(this);
-		this._onSubmitLogin = this._onSubmitLogin.bind(this);
+		this._onSubmit = this._onSubmit.bind(this);
 	};
 
 	_toggleShowPassword() {
@@ -58,32 +58,31 @@ export default class Form extends Component {
 		})
 	};
 
-	_onSubmitLogin = () => {
-		this.setState({ isProcessing: true });//设置为处理中，主要是为了禁用提交按钮，避免重复提交
+	_onSubmit = () => {
 		log('用户点击了提交按钮 : username = ' + this.state.username + ',password=' + this.state.password);
+
+		const username = this.state.username;
+		const password = this.state.password;
+		if (S.isBlank(username)) {
+			Alert.alert("用户名不能为空");
+			return;
+		}
+
+		if (S.isBlank(password)) {
+			Alert.alert("密码不能为空");
+			return;
+		}
+
+		this.setState({ isProcessing: true });//设置为处理中，主要是为了禁用提交按钮，避免重复提交
 
 		// 下面的逻辑使用定时器模拟了一个用户登录的处理过程
 		if (this.timerMockProcessing) {
 			clearTimeout(this.timerMockProcessing);
 		}
 		this.timerMockProcessing = setTimeout(() => {
-			this._processUserLogin();
+			this.props.onSubmit(this.state.username, this.state.password);
 			this.setState({ isProcessing: false });
 		}, 600);
-	};
-
-	_processUserLogin() {
-		const exist = userService.existUserWithUsername(this.state.username);
-		if (!exist) {
-			Alert.alert("用户名错误");
-			return;
-		}
-
-		const match = userService.checkUser(this.state.username, this.state.password);
-		if (!match) {
-			Alert.alert("密码不匹配");
-			return;
-		}
 	};
 
 
@@ -120,7 +119,7 @@ export default class Form extends Component {
 						<Image source={imageEye} style={styles.iconEye} />
 					</TouchableOpacity>
 				</View>
-				<ButtonSubmit isLoading={this.state.isProcessing} onPress={this._onSubmitLogin} />
+				<ButtonSubmit isLoading={this.state.isProcessing} onPress={this._onSubmit} />
 			</View>
 		);
 	}

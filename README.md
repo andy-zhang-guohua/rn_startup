@@ -1,3 +1,15 @@
+# 2018-02-28
+
+1. 引入字符串工具包 understore.string
+   ```js
+   
+   // https://github.com/epeli/underscore.string
+   npm install underscore.string --save
+   // 注意安装完成后需要重新启动应用
+   
+   ```
+2. 完成登录屏的用户登录逻辑，包括模拟验证用户，错误处理，和屏幕切换
+
 # 2018-02-27
 1. 模块中定义类，导出类对象变量在其他地方使用
 2. 模块中导出类的例子参考各个自定义React组件定义类的导出即可，比如 `Main.js`

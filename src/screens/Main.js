@@ -6,7 +6,6 @@ import {
   Button,
   Alert,
   View,
-  Navigator,
   TouchableOpacity,
 } from 'react-native';
 
