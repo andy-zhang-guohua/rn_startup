@@ -16,17 +16,37 @@ import UserProfileScreen from './src/screens/UserProfile';
 import * as Log from './src/utils/LogUtils'
 import { debuger } from './src/utils/DebugUtils'
 
-const RootStack = StackNavigator(
+//非模态Modal导航屏
+const MainStack = StackNavigator(
   {
-    Login: { screen: LoginScreen },
     Register: { screen: RegisterScreen },
     UserProfile: { screen: UserProfileScreen },
     Main: { screen: MainScreen },
   },
   {
     initialRouteName: 'Main',
-    // mode : 'card',  // card, modal
-    // headerMode : 'none' // float, screen ,none
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
+  }
+);
+
+// 模态Modal导航屏
+const RootStack = StackNavigator(
+  {
+    Login: { screen: LoginScreen },
+    Main: { screen: MainStack },
+  },
+  {
+    initialRouteName: 'Main',
+    mode: 'modal',  // card(default), modal
+    headerMode: 'none' // float, screen ,none
   }
 );
 
