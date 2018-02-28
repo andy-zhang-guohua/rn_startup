@@ -53,6 +53,11 @@ class MainScreen extends Component {
     log('点击按钮ID =' + event.nativeEvent.target);
   };
 
+  _logout = () => {
+    this.setState({ username: '' });
+    appPreference.removeUsername();
+  };
+
   render() {
     const { navigate } = this.props.navigation;
     let username = this.state.username;
@@ -79,6 +84,7 @@ class MainScreen extends Component {
     />;
     const buttonLogout = <Button onPress={(event) => {
       this._onButtonClick(event);
+      this._logout();
     }
     }
       color='#884488'
