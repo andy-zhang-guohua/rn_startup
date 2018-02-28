@@ -121,4 +121,4 @@ class Debuger {
 const DEFAULT_INDENT_OF_LOGGING_MESSAGE = 1
 // debugger 是javascript 调试语句的专用关键字，所以我使用 debugger 作为变量名称会报告语法错误，
 // 所以这里使用 debuger 作为我自定义的调试器名称
-export let debuger = new Debuger(DEFAULT_INDENT_OF_LOGGING_MESSAGE);export let debuger = new Debuger(DEFAULT_INDENT_OF_LOGGING_MESSAGE);
+export let debuger = new Debuger(DEFAULT_INDENT_OF_LOGGING_MESSAGE);
