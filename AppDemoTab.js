@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as Log from './src/utils/LogUtils'
 import { debuger } from './src/utils/DebugUtils'
 
@@ -26,10 +25,12 @@ class SettingsScreen extends React.Component {
   }
 }
 
-const RootStack = TabNavigator({
-  Home: { screen: HomeScreen },
-  Settings: { screen: SettingsScreen },
-}, {
+const RootStack = TabNavigator(
+  {
+    Home: { screen: HomeScreen },
+    Settings: { screen: SettingsScreen },
+  },
+  {
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
