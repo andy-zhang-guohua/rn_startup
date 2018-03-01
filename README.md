@@ -35,7 +35,10 @@
 	```
 	error: bundling failed: Error: While resolving module `react-native-vector-icons/Ionicons`, the Haste package `react-native-vector-icons` was found. However the module `Ionicons` could not be found within the package. Indeed, none of these files exist:		
 	```
-	
+
+3. 增加新的应用程序入口AppDemoTabWithStack,用于学习 Tab Navigator 内嵌套 Stack Navigator,以及跟 Modal 的配合(以Login屏幕为例)
+   到目前为止 ， 有三个应用程序入口可供选择 : App, AppDemoTab, AppDemoTabWithStack
+
 # 2018-02-28
 
 1. 引入字符串工具包 understore.string

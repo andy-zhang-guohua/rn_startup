@@ -1,39 +1,45 @@
 import React, { Component } from 'react';
-import { Text, View ,Button} from 'react-native';
-import { TabNavigator, TabBarBottom } from 'react-navigation';
+import { Text, View, Button } from 'react-native';
+import { TabNavigator, TabBarBottom, StackNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as Log from './src/utils/LogUtils'
 import { debuger } from './src/utils/DebugUtils'
+
+import LoginScreen from './src/screens/Login'
+
+class HomeDetailsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Home Details!</Text>
+      </View>
+    );
+  }
+}
+
+class SettingDetailsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Setting Details!</Text>
+      </View>
+    );
+  }
+}
 
 class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>首页!</Text>
+        { /* other code from before here */}
         <Button
-          title="Go to Settings"
-          onPress={() => this.props.navigation.navigate('Settings')}
+          title="Go to Home Details"
+          onPress={() => this.props.navigation.navigate('Details')}
         />
-      </View>
-    );
-  }
-}
-
-class MessagesScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>消息!</Text>
-      </View>
-    );
-  }
-}
-
-class UserCenterScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>个人中心!</Text>
+        <Button
+        title="用户登录"
+        onPress={() => this.props.navigation.navigate('Login')}
+      />
       </View>
     );
   }
@@ -43,24 +49,31 @@ class SettingsScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>设置!</Text>
+        { /* other code from before here */}
         <Button
-          title="Go to Home"
-          onPress={() => this.props.navigation.navigate('Home')}
+          title="Go to Setting Details"
+          onPress={() => this.props.navigation.navigate('Details')}
         />
       </View>
     );
   }
 }
 
+const HomeStack = StackNavigator({
+  Home: { screen: HomeScreen },
+  Details: { screen: HomeDetailsScreen },
+});
+
+const SettingsStack = StackNavigator({
+  Settings: { screen: SettingsScreen },
+  Details: { screen: SettingDetailsScreen },
+});
 
 
-const RootStack = TabNavigator(
+const TabScreens = TabNavigator(
   {
-    Home: { screen: HomeScreen },
-    Messages: { screen: MessagesScreen },
-    UserCenter: { screen: UserCenterScreen },
-    Settings: { screen: SettingsScreen },
+    Home: { screen: HomeStack },
+    Settings: { screen: SettingsStack },
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -69,11 +82,6 @@ const RootStack = TabNavigator(
         let iconName;
         if (routeName === 'Home') {
           iconName = `ios-home${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Messages') {
-          iconName = `ios-chatbubbles${focused ? '' : '-outline'}`;
-        }
-        else if (routeName === 'UserCenter') {
-          iconName = `ios-person${focused ? '' : '-outline'}`;
         }
         else if (routeName === 'Settings') {
           iconName = `ios-options${focused ? '' : '-outline'}`;
@@ -95,7 +103,21 @@ const RootStack = TabNavigator(
   }
 );
 
-export default class AppDemoTab extends Component {
+
+// 模态Modal导航屏
+const RootStack = StackNavigator(
+  {
+    Login: { screen: LoginScreen },
+    Main: { screen: TabScreens },
+  },
+  {
+    initialRouteName: 'Main',
+    mode: 'modal',  // card(default), modal
+    headerMode: 'none' // float, screen ,none
+  }
+);
+
+export default class AppDemoTabWithStack extends Component {
   /**
    * 构造函数
    * @param {*} props 调用者设置给该组件的属性
