@@ -49,7 +49,10 @@
 	- CA认证 ssl 证书的 https : 工作
 
 6. 密码摘要功能 : PasswordUtils.sha256Base64, 基于 crypto-js@3.1.9-1,演示代码在 UserProfile.render()中
-
+	```
+	// https://github.com/brix/crypto-js
+	npm install crypto-js --save
+	```
 # 2018-02-28
 
 1. 引入字符串工具包 understore.string
