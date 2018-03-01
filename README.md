@@ -42,6 +42,13 @@
 4. 增加新的应用程序入口AppDemoDrawer,用于学习 Drawer Navigator (目前没有跟其他导航模式的配合)
    到目前为止 ， 有四个应用程序入口可供选择 : App, AppDemoTab, AppDemoTabWithStack,AppDemoDrawer   
 
+5. 增加使用fetch从服务器获取数据的代码例子，在 Main.js 中
+
+	- http : 工作
+	- 自签名 ssl 证书的 https : 不工作，请求失败
+	- CA认证 ssl 证书的 https : 工作
+
+
 # 2018-02-28
 
 1. 引入字符串工具包 understore.string

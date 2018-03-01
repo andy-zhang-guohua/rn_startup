@@ -30,17 +30,45 @@ class MainScreen extends Component {
     super();
 
     this.state = {
-      username: ''
+      username: '',
+      messageFromServer: ''
     };
 
     this._onButtonClick = this._onButtonClick.bind(this);
     this._onUsernameLoadFromAppPreference = this._onUsernameLoadFromAppPreference.bind(this);
+    this._loadSomeDataFromServer = this._loadSomeDataFromServer.bind(this);
   }
 
   componentWillMount() {
-    log('首页屏组件被加载');
+    log('首页屏组件将被挂载');
 
     appPreference.getUsername(this._onUsernameLoadFromAppPreference);
+  }
+
+  componentDidMount() {
+    log('首页屏组件已被挂载');
+
+    this._loadSomeDataFromServer();
+  }
+
+  /** 模拟从服务器上取数据，也就是和远程服务器的交互*/
+  _loadSomeDataFromServer() {
+    //let url = 'https://customer.qifuy.com/api/sanity';// 自签名
+    let url = 'https://bj.meituan.com/ptapi/recommends';// CA 签名
+    //let url = 'http://customer.qifuy.com:9001/api/sanity';
+
+    let successHandler = (response) => {
+      log(response);
+      let message = "来自网络的数据：\n" + url + "\n" + S.prune(JSON.stringify(response, null, '\t'), 300);
+      this.setState({ messageFromServer: message });
+    };
+
+    let errorHandler = (error) => {
+      log(error);
+      let message = "访问网络数据出错：\n" + url + "\n" + S.prune(error.message, 300);
+      this.setState({ messageFromServer: message });
+    };
+    fetch(url).then((response) => { if (response.ok) return response.json(); throw new Error('Network response was not ok.'); }).then(successHandler).catch(errorHandler);
   }
 
   _onUsernameLoadFromAppPreference(username) {
@@ -98,6 +126,9 @@ class MainScreen extends Component {
       color='#841584'
       title="个人信息"
     />;
+
+    let messageFromServer = this.state.messageFromServer;
+
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -105,6 +136,9 @@ class MainScreen extends Component {
         </Text>
         <Text style={styles.instructions}>
           {instructions}
+        </Text>
+        <Text style={styles.serverMessage}>
+          {messageFromServer}
         </Text>
         {!userRemembered ? textLogin : null}
         {!userRemembered ? buttonLogin : null}
@@ -137,6 +171,13 @@ const styles = StyleSheet.create({
   instructions: {
     textAlign: 'center',
     color: '#333333',
+    marginBottom: 5,
+  },
+  serverMessage: {
+    fontSize: 8,
+    textAlign: 'left',
+    backgroundColor: '#e2e2e2',
+    color: '#0000FF',
     marginBottom: 5,
   },
 });
