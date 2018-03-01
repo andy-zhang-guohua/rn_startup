@@ -6,6 +6,10 @@ import * as Log from './src/utils/LogUtils'
 import { debuger } from './src/utils/DebugUtils'
 
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+		title: '首页',
+  };
+  
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -20,6 +24,9 @@ class HomeScreen extends React.Component {
 }
 
 class MessagesScreen extends React.Component {
+  static navigationOptions = {
+		title: '消息',
+  };
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -30,6 +37,9 @@ class MessagesScreen extends React.Component {
 }
 
 class UserCenterScreen extends React.Component {
+  static navigationOptions = {
+		title: '我的',
+  };
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -40,6 +50,9 @@ class UserCenterScreen extends React.Component {
 }
 
 class SettingsScreen extends React.Component {
+  static navigationOptions = {
+		title: '设置',
+  };
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
