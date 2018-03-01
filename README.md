@@ -39,6 +39,9 @@
 3. 增加新的应用程序入口AppDemoTabWithStack,用于学习 Tab Navigator 内嵌套 Stack Navigator,以及跟 Modal 的配合(以Login屏幕为例)
    到目前为止 ， 有三个应用程序入口可供选择 : App, AppDemoTab, AppDemoTabWithStack
 
+4. 增加新的应用程序入口AppDemoDrawer,用于学习 Drawer Navigator (目前没有跟其他导航模式的配合)
+   到目前为止 ， 有四个应用程序入口可供选择 : App, AppDemoTab, AppDemoTabWithStack,AppDemoDrawer   
+
 # 2018-02-28
 
 1. 引入字符串工具包 understore.string
