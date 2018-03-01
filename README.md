@@ -180,8 +180,11 @@
 	2. index.js 定义应用程序启动时直接进入 App
 
 7. 使用 Google Chrome 浏览器查看控制台输出
+
 	1. 应用运行时打开浏览器 http://localhost:8081/debugger-ui/ ;
+
 	2. Windows 平台上 Ctrl+Shift + J 打开 Chrome Developer Tools;
+
 	3. 切换到控制台 Console Tab ;
 	
 	>**注意 : 这里只能看到 `console.log()` 之类的输出，并不能使用 Chrome Developer Tools 的 Inspect 功能查看应用的控件属性和布局等信息**
@@ -205,7 +208,7 @@
 	`react-devtools` 和 `Inspector` 可以结合使用;
 
 10. 实现 Login 页面布局
-11. 
-	TODO : 尚未实现数据获取，验证，用户登录逻辑
+
+11. TODO : 尚未实现数据获取，验证，用户登录逻辑
 	
 	
