@@ -85,7 +85,10 @@ class MainScreen extends Component {
     // 1. 应用程序启动后首次进入首页，应用程序尝试从本地存储读取用户名
     // 2. 退出登录功能执行完成，本地存储的当前用户名已经被删除后返回该页面
     // 3. 用户未退出，从其他页面(比如用户个人中心)返回该页面
-    this.setState({ username: username });
+    if (username !== this.state.username) {// 仅在读取到的用户名和屏幕上显示的用户名称有变化时才刷新页面
+      log("用户名发生变化，刷新页面");
+      this.setState({ username: username });
+    }
   }
 
   _onButtonClick = (event) => {

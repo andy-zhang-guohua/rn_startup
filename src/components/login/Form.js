@@ -82,7 +82,7 @@ export default class Form extends Component {
 		this.timerMockProcessing = setTimeout(() => {
 			this.props.onSubmit(this.state.username, this.state.password);
 			this.setState({ isProcessing: false });
-		}, 600);
+		}, 100);
 	};
 
 
