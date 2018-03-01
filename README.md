@@ -1,14 +1,20 @@
 # 2018-03-01
 1. 应用程序入口暂时接入AppDemoTab,用于学习 Tab Navigator,之前的屏幕基于 Stack Navigator
+	
+	[参考文档:Tab navigation](https://reactnavigation.org/docs/tab-based-navigation.html)
 2. 引入 react-native-vector-icons
+	
 	目前仅针对安卓平台确认可用
+	
 	react-native-vector-icons 官网 :
 		
 	- [源代码](https://github.com/oblador/react-native-vector-icons)
 	- [官网首页](https://oblador.github.io/react-native-vector-icons/	)
 
 	安装方法 :
+	
 	1.npm 安装
+	
 	```
 		npm install react-native-vector-icons --save
 		react-native link // 注意此命令不要重复执行	
@@ -23,6 +29,7 @@
 	```
 
 	其他问题 :
+	
 	1. 针对以下Ionicons找不到的workaround : 删除 node_modules/react-native/local-cli/core/__fixtures__/files/package.json
 
 	```
