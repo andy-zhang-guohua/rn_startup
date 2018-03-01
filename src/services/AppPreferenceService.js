@@ -10,26 +10,36 @@ import { log } from '../utils/LogUtils'
 
 class AppPreferenceService {
     constructor() {
+        // 在应用程序生命周期内将用户名称缓存在内存中
         this.username = '';
     }
 
     getUsername(callback) {
-        log('读取用户名');
+        log('将要读取应用配置参数:用户名');
+
+        if (this.username) {
+            callback(this.username);
+            return;
+        }
 
         AsyncStorage.getItem("username").then((value) => {
+            log('从应用配置文件读取到用户名 : ' + value);
+            this.username = value;
             callback(value);
         });
     }
 
     setUsername(username) {
-        log('保存用户名:' + username);
+        log('设置应用配置参数:用户名=' + username);
 
+        this.username = username;
         AsyncStorage.setItem("username", username);
     }
 
     removeUsername() {
-        log("删除本地记录的用户名");
-        
+        log("删除应用配置参数:用户名");
+
+        this.username = '';
         AsyncStorage.removeItem("username");
     }
 }

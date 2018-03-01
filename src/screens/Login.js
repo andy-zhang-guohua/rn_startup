@@ -32,7 +32,7 @@ export default class LoginScreen extends Component {
 
 
 	componentWillMount() {
-		log('登录屏组件被加载');
+		log('登录屏组件被装载');
 
 		this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
 		this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
@@ -79,8 +79,11 @@ export default class LoginScreen extends Component {
 
 		appPreference.setUsername(username);
 
-		const { navigate } = this.props.navigation;
-		navigate('UserProfile', { username: username });
+		// 将当前屏关闭,回到堆栈中未被删除的上一个屏
+		// 调用此 goBack()或者pop()方法，会引起当前屏幕组件实例被释放，
+		// 也就是会导致当前登录屏的卸载，这正是预期的效果
+		this.props.navigation.goBack();//pop()
+		this.props.navigation.navigate('UserProfile', { username: username });
 	};
 
 	render() {

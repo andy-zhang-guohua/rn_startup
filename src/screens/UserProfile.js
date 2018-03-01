@@ -30,6 +30,9 @@ class UserProfileScreen extends Component {
   _logout = () => {
     this.setState({ username: '' });
     appPreference.removeUsername();
+    // Call this to jump back to the top route in the stack, dismissing all other screens.
+    // 但是这种跳转并没有控制目标屏幕的刷新，如果数据已经发生了变化，需要目标屏幕自己控制刷新
+    this.props.navigation.popToTop();
   };
 
   render() {
@@ -49,7 +52,7 @@ class UserProfileScreen extends Component {
         <Button
           title="回到主页"
           onPress={() => {
-            this.props.navigation.navigate('Main');
+            this.props.navigation.pop();
           }
           }
         />
@@ -61,7 +64,6 @@ class UserProfileScreen extends Component {
           color='#884488'
           onPress={() => {
             this._logout();
-            this.props.navigation.navigate('Main');
           }
           }
         />

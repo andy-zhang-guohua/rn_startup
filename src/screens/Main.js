@@ -42,7 +42,14 @@ class MainScreen extends Component {
   componentWillMount() {
     log('首页屏组件将被挂载');
 
-    appPreference.getUsername(this._onUsernameLoadFromAppPreference);
+
+    this.props.navigation.addListener(
+      'willFocus',
+      payload => {
+        log('首页屏幕将被激活', payload);
+        appPreference.getUsername(this._onUsernameLoadFromAppPreference);
+      }
+    );
   }
 
   componentDidMount() {
@@ -72,9 +79,13 @@ class MainScreen extends Component {
   }
 
   _onUsernameLoadFromAppPreference(username) {
-    console.log("从应用配置文件读取到用户名 : " + username);
-    if (!S.isBlank(username))
-      this.setState({ username: username });
+    log("从应用配置读取到用户名 : " + username);
+    // 不管读取到的用户名是否为空，都需要重新设置一下状态，
+    // 因为该方法在应用程序以下几种情况都会被调用 :
+    // 1. 应用程序启动后首次进入首页，应用程序尝试从本地存储读取用户名
+    // 2. 退出登录功能执行完成，本地存储的当前用户名已经被删除后返回该页面
+    // 3. 用户未退出，从其他页面(比如用户个人中心)返回该页面
+    this.setState({ username: username });
   }
 
   _onButtonClick = (event) => {
@@ -116,7 +127,7 @@ class MainScreen extends Component {
     }
     }
       color='#884488'
-      title="退出"
+      title="退出登录"
     />;
     const buttonGotoUserProfile = <Button onPress={(event) => {
       this._onButtonClick(event);

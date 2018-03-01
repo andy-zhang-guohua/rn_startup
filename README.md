@@ -55,6 +55,11 @@
 	// https://github.com/brix/crypto-js
 	npm install crypto-js --save
 	```
+
+7. React Navigation 屏幕切换时的生命周期方法控制 : willFocus,didFocus,willBlur,didBlur
+   
+   [参考文档:Navigation prop reference](https://reactnavigation.org/docs/navigation-prop.html)
+
 # 2018-02-28
 
 1. 引入字符串工具包 understore.string
