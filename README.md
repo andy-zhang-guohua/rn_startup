@@ -48,6 +48,7 @@
 	- 自签名 ssl 证书的 https : 不工作，请求失败
 	- CA认证 ssl 证书的 https : 工作
 
+6. 密码摘要功能 : PasswordUtils.sha256Base64, 基于 crypto-js@3.1.9-1,演示代码在 UserProfile.render()中
 
 # 2018-02-28
 

@@ -7,10 +7,10 @@ import {
   Alert,
 } from 'react-native';
 
+import * as PasswordUtils from '../utils/PasswordUtils'
 import { log } from '../utils/LogUtils'
 import { userService } from '../services/UserService'
 import { appPreference } from '../services/AppPreferenceService'
-
 
 class UserProfileScreen extends Component {
   static navigationOptions = {
@@ -33,6 +33,12 @@ class UserProfileScreen extends Component {
   };
 
   render() {
+    {
+      // 该代码块在控制台上演示一个 sha256+Base64 摘要的功能
+      let rawPassword = '111';//密码明文
+      let cypherPassword = PasswordUtils.sha256Base64(rawPassword);
+      log("sha256 + Base64 : " + rawPassword + "==>" + cypherPassword);
+    }
     const { params } = this.props.navigation.state;
     const username = params ? params.username : null;
     return (
