@@ -9,7 +9,27 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home!</Text>
+        <Text>首页!</Text>
+      </View>
+    );
+  }
+}
+
+class MessagesScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>消息!</Text>
+      </View>
+    );
+  }
+}
+
+class UserCenterScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>个人中心!</Text>
       </View>
     );
   }
@@ -19,15 +39,19 @@ class SettingsScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
+        <Text>设置!</Text>
       </View>
     );
   }
 }
 
+
+
 const RootStack = TabNavigator(
   {
     Home: { screen: HomeScreen },
+    Messages: { screen: MessagesScreen },
+    UserCenter: { screen: UserCenterScreen },
     Settings: { screen: SettingsScreen },
   },
   {
@@ -36,8 +60,14 @@ const RootStack = TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === 'Home') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Settings') {
+          iconName = `ios-home${focused ? '' : '-outline'}`;
+        } else if (routeName === 'Messages') {
+          iconName = `ios-chatbubbles${focused ? '' : '-outline'}`;
+        }
+        else if (routeName === 'UserCenter') {
+          iconName = `ios-person${focused ? '' : '-outline'}`;
+        }
+        else if (routeName === 'Settings') {
           iconName = `ios-options${focused ? '' : '-outline'}`;
         }
 

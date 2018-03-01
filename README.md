@@ -9,7 +9,7 @@
 	react-native-vector-icons 官网 :
 		
 	- [源代码](https://github.com/oblador/react-native-vector-icons)
-	- [官网首页](https://oblador.github.io/react-native-vector-icons/	)
+	- [官网首页](https://oblador.github.io/react-native-vector-icons/)
 
 	安装方法 :
 	
