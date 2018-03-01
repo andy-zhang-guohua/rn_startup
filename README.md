@@ -33,7 +33,9 @@
 	1. 针对以下Ionicons找不到的workaround : 删除 node_modules/react-native/local-cli/core/__fixtures__/files/package.json
 
 	```
-	error: bundling failed: Error: While resolving module `react-native-vector-icons/Ionicons`, the Haste package `react-native-vector-icons` was found. However the module `Ionicons` could not be found within the package. Indeed, none of these files exist:		
+	error: bundling failed: Error: While resolving module `react-native-vector-icons/Ionicons`, 
+	the Haste package `react-native-vector-icons` was found. However the module `Ionicons` could 
+	not be found within the package. 
 	```
 
 3. 增加新的应用程序入口AppDemoTabWithStack,用于学习 Tab Navigator 内嵌套 Stack Navigator,以及跟 Modal 的配合(以Login屏幕为例)
