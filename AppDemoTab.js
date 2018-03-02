@@ -1,15 +1,57 @@
 import React, { Component } from 'react';
-import { Text, View ,Button} from 'react-native';
+import { Text, View, Button } from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as Log from './src/utils/LogUtils'
+import { log } from './src/utils/LogUtils'
 import { debuger } from './src/utils/DebugUtils'
+
+const bindScreenTransitionEventListeners = function (screen) {
+  screen.props.navigation.addListener(
+    'willFocus',
+    payload => {
+      log(screen.props.navigation.state.key + '屏幕将被激活', payload);
+    }
+  );
+  screen.props.navigation.addListener(
+    'didFocus',
+    payload => {
+      log(screen.props.navigation.state.key + '屏幕已被激活', payload);
+    }
+  );
+  screen.props.navigation.addListener(
+    'willBlur',
+    payload => {
+      log(screen.props.navigation.state.key + '屏幕将被隐藏', payload);
+    }
+  );
+  screen.props.navigation.addListener(
+    'didBlur',
+    payload => {
+      log(screen.props.navigation.state.key + '屏幕已被隐藏', payload);
+    }
+  );
+}
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-		title: '首页',
+    title: '首页',
   };
-  
+
+  componentWillMount() {
+    log(this.props.navigation.state.key + '屏幕将被挂载');
+
+    bindScreenTransitionEventListeners(this);
+  }
+
+  componentWillUpdate() {
+    log(this.props.navigation.state.key + '屏幕将被更新');
+  }
+
+  componentDidUpdate() {
+    log(this.props.navigation.state.key + '屏幕已被更新');
+  }
+
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -25,8 +67,23 @@ class HomeScreen extends React.Component {
 
 class MessagesScreen extends React.Component {
   static navigationOptions = {
-		title: '消息',
+    title: '消息',
   };
+
+  componentWillMount() {
+    log(this.props.navigation.state.key + '屏幕将被挂载');
+
+    bindScreenTransitionEventListeners(this);
+  }
+
+  componentWillUpdate() {
+    log(this.props.navigation.state.key + '屏幕将被更新');
+  }
+
+  componentDidUpdate() {
+    log(this.props.navigation.state.key + '屏幕已被更新');
+  }
+
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -38,8 +95,23 @@ class MessagesScreen extends React.Component {
 
 class UserCenterScreen extends React.Component {
   static navigationOptions = {
-		title: '我的',
+    title: '我的',
   };
+
+  componentWillMount() {
+    log(this.props.navigation.state.key + '屏幕将被挂载');
+
+    bindScreenTransitionEventListeners(this);
+  }
+
+  componentWillUpdate() {
+    log(this.props.navigation.state.key + '屏幕将被更新');
+  }
+
+  componentDidUpdate() {
+    log(this.props.navigation.state.key + '屏幕已被更新');
+  }
+
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -51,8 +123,23 @@ class UserCenterScreen extends React.Component {
 
 class SettingsScreen extends React.Component {
   static navigationOptions = {
-		title: '设置',
+    title: '设置',
   };
+
+  componentWillMount() {
+    log(this.props.navigation.state.key + '屏幕将被挂载');
+
+    bindScreenTransitionEventListeners(this);
+  }
+
+  componentWillUpdate() {
+    log(this.props.navigation.state.key + '屏幕将被更新');
+  }
+
+  componentDidUpdate() {
+    log(this.props.navigation.state.key + '屏幕已被更新');
+  }
+
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
