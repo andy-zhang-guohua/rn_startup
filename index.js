@@ -4,4 +4,4 @@ import AppDemoTab from './AppDemoTab'
 import AppDemoTabWithStack from './AppDemoTabWithStack'
 import AppDemoDrawer from "./AppDemoDrawer"
 
-AppRegistry.registerComponent('rn_startup', () => AppDemoTab);
+AppRegistry.registerComponent('rn_startup', () => App);

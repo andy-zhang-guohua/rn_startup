@@ -12,7 +12,7 @@ import MainScreen from './src/screens/Main';
 import LoginScreen from './src/screens/Login';
 import RegisterScreen from './src/screens/Register';
 import UserProfileScreen from './src/screens/UserProfile';
-
+import SplashScreen from 'react-native-splash-screen';
 import * as Log from './src/utils/LogUtils'
 import { debuger } from './src/utils/DebugUtils'
 
@@ -73,6 +73,12 @@ export default class App extends Component {
   static defaultProps = {
     applicationName: 'Hello World Application in React Native',
   };
+
+  componentDidMount() {
+    Log.log('应用程序入口组件已经挂载');
+
+    SplashScreen.hide();
+  }
 
   render() {
     return <RootStack />;

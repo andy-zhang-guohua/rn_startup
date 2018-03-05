@@ -1,3 +1,34 @@
+# 2018-03-05
+1. React Native 中实现 Splash 屏幕
+
+	- 安卓已验
+	[参考文档](https://github.com/crazycodeboy/react-native-splash-screen)
+	- iOS未验
+
+2. React Native 中轮播图
+	//TODO
+3. React Native 中展示PDF
+	//TODO
+4. React Native 中播放音乐
+	//TODO
+5. React Native 中播放视频
+	//TODO
+6. React Native 中使用地理位置
+	//TODO
+7. React Native 中打电话
+	//TODO
+8. React Native 中滚动视图 ScrollView
+	//TODO
+9. React Native 中使用相机
+	//TODO
+10. React Native 动画效果机制
+	//TODO
+11. React Native 中实现视图下拉刷新/上拉加载
+	//TODO
+
+# 2018-03-02
+1. React Navigation willFocus/didFocus,willBlur/didBlur 屏幕切换事件发生时机观察
+
 # 2018-03-01
 1. 应用程序入口暂时接入AppDemoTab,用于学习 Tab Navigator,之前的屏幕基于 Stack Navigator
 	

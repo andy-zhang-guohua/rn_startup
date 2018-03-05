@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--如果没有下面一行，SplashScreen功能会出错，导致应用程序启动失败-->
+    <color name="primary_dark">#000000</color>
+</resources>

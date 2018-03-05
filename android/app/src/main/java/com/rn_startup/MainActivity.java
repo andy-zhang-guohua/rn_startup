@@ -2,6 +2,10 @@ package com.rn_startup;
 
 import com.facebook.react.ReactActivity;
 
+// 以下两行import是为了SplashScreen功能
+import android.os.Bundle;
+import org.devio.rn.splashscreen.SplashScreen;
+
 public class MainActivity extends ReactActivity {
 
     /**
@@ -11,5 +15,11 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "rn_startup";
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this);// 该行是为了SplashScreen功能: 展示splash屏幕
+        super.onCreate(savedInstanceState);
     }
 }

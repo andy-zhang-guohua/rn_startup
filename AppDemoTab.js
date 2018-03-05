@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import * as Log from './src/utils/LogUtils'
-import { log } from './src/utils/LogUtils'
-import { debuger } from './src/utils/DebugUtils'
+import * as Log from './src/utils/LogUtils';
+import { log } from './src/utils/LogUtils';
+import { debuger } from './src/utils/DebugUtils';
+import SplashScreen from 'react-native-splash-screen';
 
 const bindScreenTransitionEventListeners = function (screen) {
   screen.props.navigation.addListener(
@@ -217,6 +218,12 @@ export default class AppDemoTab extends Component {
   static defaultProps = {
     applicationName: 'Hello World Application in React Native',
   };
+
+  componentDidMount() {
+    log('应用程序入口组件已经挂载');
+
+    SplashScreen.hide();
+  }
 
   render() {
     return <RootStack />;
