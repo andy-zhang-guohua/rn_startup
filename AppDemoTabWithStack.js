@@ -141,7 +141,7 @@ export default class AppDemoTabWithStack extends Component {
   };
 
   componentDidMount() {
-    log('应用程序入口组件已经挂载');
+    Log.log('应用程序入口组件已经挂载');
 
     SplashScreen.hide();
   }

@@ -15,6 +15,8 @@
 		
 		- iOS未验
 	- 方案二 :  f8 ViewPager
+	
+	// TODO
 
 3. React Native 中展示PDF
 	
@@ -42,6 +44,14 @@
 	//TODO
 11. React Native 中实现视图下拉刷新/上拉加载
 	
+	//TODO
+
+12. React Native 上传文件或者图片
+	
+	//TODO
+
+13. React Native 下载保存文件
+
 	//TODO
 
 # 2018-03-02
