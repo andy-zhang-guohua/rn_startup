@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, FlatList } from 'react-native';
 import { TabNavigator, TabBarBottom, StackNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as Log from './src/utils/LogUtils'
 import { debuger } from './src/utils/DebugUtils'
 import SplashScreen from 'react-native-splash-screen';
 import LoginScreen from './src/screens/Login'
+import FlatListBasics from './src/fragments/FlatListBasics'
+
 
 class HomeDetailsScreen extends React.Component {
   render() {
@@ -30,16 +32,18 @@ class SettingDetailsScreen extends React.Component {
 class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        { /* other code from before here */}
-        <Button
-          title="Go to Home Details"
-          onPress={() => this.props.navigation.navigate('Details')}
-        />
-        <Button
-        title="用户登录"
-        onPress={() => this.props.navigation.navigate('Login')}
-      />
+      <View style={{ flex: 1, alignItems: 'center' }}>
+        <FlatListBasics style={{ flex: 5 }} />
+        <View style={{ flex: 1, paddingTop: 1 }}>
+          <Button
+            title="Go to Home Details"
+            onPress={() => this.props.navigation.navigate('Details')}
+          />
+          <Button
+            title="用户登录"
+            onPress={() => this.props.navigation.navigate('Login')}
+          />
+        </View>
       </View>
     );
   }
