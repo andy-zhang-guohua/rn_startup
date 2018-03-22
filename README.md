@@ -3,10 +3,13 @@
 1. 引入 `react-native-fetch-blob`
     - [源代码网址和安装指南](https://github.com/wkh237/react-native-fetch-blob)
     - 在安卓上做实验
+        - 列出磁盘使用情况
+        - 列出各个目录
         - 新建文件
         - 删除文件
         - 写入文件
         - 读取文件
+        - 检查文件存在性
         - 下载文件，展示进度，保存到文件
     - 问题和解决方案
         - 问题: SDK 版本过低
