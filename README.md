@@ -3,6 +3,14 @@
 1. 引入 `react-native-fetch-blob`
     - [源代码网址和安装指南](https://github.com/wkh237/react-native-fetch-blob)
     - 在安卓上做实验
+        - 新建文件
+        - 删除文件
+        - 写入文件
+        - 读取文件
+        - 下载文件，展示进度，保存到文件
+    - 问题和解决方案
+        - 问题: SDK 版本过低
+            - 解决方案 : 在`react-native-fetch-blob`安卓项`目的build.gradle`中修改相应的SDK版本
 
 # 2018-03-06
 1. FlatList ： AppDemoTabWithStack.js
