@@ -1,6 +1,6 @@
 # 2018-03-22
 
-1. 引入 `react-native-fetch-blob`
+1. 引入 `react-native-fetch-blob`测试文件系统相关功能
     - [源代码网址和安装指南](https://github.com/wkh237/react-native-fetch-blob)
     - 在安卓上做实验
         - 列出磁盘使用情况
@@ -14,6 +14,7 @@
     - 问题和解决方案
         - 问题: SDK 版本过低
             - 解决方案 : 在`react-native-fetch-blob`安卓项`目的build.gradle`中修改相应的SDK版本
+2. 动画测试
 
 # 2018-03-06
 1. FlatList ： AppDemoTabWithStack.js

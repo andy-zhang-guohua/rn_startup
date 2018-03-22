@@ -31,8 +31,7 @@ class TestEntryScreen extends Component {
     }
 
     _gotoAnimationTestScreen() {
-        alert(`尚未实现`);
-        //this.props.navigation.navigate('FileSystemTest');
+        this.props.navigation.navigate('AnimationTest');
     }
 
     render() {

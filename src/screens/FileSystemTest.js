@@ -99,8 +99,6 @@ class FileSystemTestScreen extends Component {
     }
 
     componentDidMount() {
-        log('首页屏组件已被挂载');
-
         RNFetchBlob.fs.df().then((diskUsage) => {
             let report = this._report(diskUsage);
             log(report);
