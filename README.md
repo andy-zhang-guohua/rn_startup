@@ -1,3 +1,9 @@
+# 2018-03-22
+
+1. 引入 `react-native-fetch-blob`
+    - [源代码网址和安装指南](https://github.com/wkh237/react-native-fetch-blob)
+    - 在安卓上做实验
+
 # 2018-03-06
 1. FlatList ： AppDemoTabWithStack.js
 

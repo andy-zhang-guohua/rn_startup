@@ -7,10 +7,9 @@ import {
     Alert,
 } from 'react-native';
 
-import * as PasswordUtils from '../utils/PasswordUtils'
+import RNFetchBlob from 'react-native-fetch-blob'
 import {log} from '../utils/LogUtils'
-import {userService} from '../services/UserService'
-import {appPreference} from '../services/AppPreferenceService'
+
 
 class FileSystemTestScreen extends Component {
     static navigationOptions = {
