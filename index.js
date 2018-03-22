@@ -5,4 +5,4 @@ import AppDemoTabWithStack from './AppDemoTabWithStack'
 import AppDemoDrawer from "./AppDemoDrawer"
 import AppCarousel from "./AppCarousel"
 
-AppRegistry.registerComponent('rn_startup', () => AppDemoTabWithStack);
+AppRegistry.registerComponent('rn_startup', () => App);
