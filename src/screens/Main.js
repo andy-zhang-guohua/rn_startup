@@ -21,8 +21,15 @@ const instructions = Platform.select({
 
 
 class MainScreen extends Component {
-    static navigationOptions = {
-        title: '首页',
+    static navigationOptions = ({navigation}) => {
+        const params = navigation.state.params || {};
+
+        return {
+            title: '首页',
+            headerRight: (
+                <Button onPress={params.increaseCount} title="+1" color="#333"/>
+            ),
+        };
     };
 
     constructor() {
@@ -30,7 +37,8 @@ class MainScreen extends Component {
 
         this.state = {
             username: '',
-            messageFromServer: ''
+            messageFromServer: '',
+            count: 0,
         };
 
         this._onButtonClick = this._onButtonClick.bind(this);
@@ -49,7 +57,15 @@ class MainScreen extends Component {
                 appPreference.getUsername(this._onUsernameLoadFromAppPreference);
             }
         );
+
+        this.props.navigation.setParams({increaseCount: this._increaseCount});
     }
+
+    _increaseCount = () => {
+        this.setState({count: this.state.count + 1});
+        log(this.state.count);
+    };
+
 
     componentDidMount() {
         log('首页屏组件已被挂载');

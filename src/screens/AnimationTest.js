@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Alert, Animated, Button, Easing, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Alert, Animated, Button, Easing, Image, StyleSheet, Text, TouchableOpacity, View,StatusBar} from 'react-native';
 
 /**
  * 参考文档 : http://www.alloyteam.com/2016/01/reactnative-animated/
@@ -15,7 +15,8 @@ class AnimationTestScreen extends Component {
         this.state = {
             fadeInOpacity: new Animated.Value(0),
             rotation: new Animated.Value(0),
-            fontSize: new Animated.Value(0)
+            fontSize: new Animated.Value(0),
+            bounceValue: new Animated.Value(0),
         };
 
         this._restart = this._restart.bind(this);
@@ -23,6 +24,15 @@ class AnimationTestScreen extends Component {
 
     componentDidMount() {
         this._restart();
+
+        this.state.bounceValue.setValue(2);     // 设置一个较大的初始值
+        Animated.spring(                          // 可选的基本动画类型: spring, decay, timing
+            this.state.bounceValue,                 // 将`bounceValue`值动画化
+            {
+                toValue: 0.8,                         // 将其值以动画的形式改到一个较小值
+                friction: 1,                          // Bouncier spring
+            }
+        ).start();                                // 开始执行动画
     }
 
     _restart() {
@@ -45,7 +55,7 @@ class AnimationTestScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity onPress={this._restart}>
+                <TouchableOpacity onPress={this._restart} style={{flex: 1}} >
                     <Animated.View style={[styles.demo, {
                         opacity: this.state.fadeInOpacity,
                         transform: [{
@@ -62,6 +72,15 @@ class AnimationTestScreen extends Component {
                     }}>我骑着七彩祥云出现了😈💨</Animated.Text>
                     </Animated.View>
                 </TouchableOpacity>
+                <Animated.Image style={{flex: 1}}                 // 可选的基本组件类型: Image, Text, View
+                                source={require('../images/logo.png')}
+                                style={{
+                                    flex: 1,
+                                    transform: [                        // `transform`是一个有序数组（动画按顺序执行）
+                                        {scale: this.state.bounceValue},  // 将`bounceValue`赋值给 `scale`
+                                    ]
+                                }}
+                />
             </View>
         );
     }
