@@ -18,6 +18,7 @@ import {debuger} from './src/utils/DebugUtils'
 import TestEntryScreen from "./src/screens/TestEntry";
 import FileSystemTestScreen from "./src/screens/FileSystemTest";
 import AnimationTestScreen from "./src/screens/AnimationTest";
+import DropDownMenuTestScreen from "./src/screens/DropDownMenuTest";
 
 //非模态Modal导航屏
 const MainStack = StackNavigator(
@@ -28,6 +29,7 @@ const MainStack = StackNavigator(
         TestEntry: {screen: TestEntryScreen},
         FileSystemTest: {screen: FileSystemTestScreen},
         AnimationTest: {screen: AnimationTestScreen},
+        DropDownMenuTest: {screen: DropDownMenuTestScreen},
     },
     {
         initialRouteName: 'Main',

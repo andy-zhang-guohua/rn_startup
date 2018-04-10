@@ -23,6 +23,7 @@ class TestEntryScreen extends Component {
         this.state = {};
         this._gotoFileSystemTestScreen = this._gotoFileSystemTestScreen.bind(this);
         this._gotoAnimationTestScreen = this._gotoAnimationTestScreen.bind(this);
+        this._gotoDropDownMenuTestScreen = this._gotoDropDownMenuTestScreen.bind(this);
     }
 
 
@@ -32,6 +33,10 @@ class TestEntryScreen extends Component {
 
     _gotoAnimationTestScreen() {
         this.props.navigation.navigate('AnimationTest');
+    }
+
+    _gotoDropDownMenuTestScreen() {
+        this.props.navigation.navigate('DropDownMenuTest');
     }
 
     render() {
@@ -45,6 +50,11 @@ class TestEntryScreen extends Component {
                 <TouchableOpacity onPress={this._gotoAnimationTestScreen} style={styles.button}>
                     <Text style={styles.buttonText}>
                         动画效果
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this._gotoDropDownMenuTestScreen} style={styles.button}>
+                    <Text style={styles.buttonText}>
+                        下拉菜单
                     </Text>
                 </TouchableOpacity>
             </View>
