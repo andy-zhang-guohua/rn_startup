@@ -1,3 +1,8 @@
+# 2018-04-10
+
+- 升级到 react-native 0.55.1
+
+
 # 2018-03-22
 
 1. 引入 `react-native-fetch-blob`测试文件系统相关功能
