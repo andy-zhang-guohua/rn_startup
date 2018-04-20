@@ -11,6 +11,7 @@ import * as PasswordUtils from '../utils/PasswordUtils'
 import {log} from '../utils/LogUtils'
 import {userService} from '../services/UserService'
 import {appPreference} from '../services/AppPreferenceService'
+import AnimatableTestScreen from "./AnimatableTest";
 
 class TestEntryScreen extends Component {
     static navigationOptions = {
@@ -40,6 +41,10 @@ class TestEntryScreen extends Component {
         this.props.navigation.navigate('ScrollableTabViewTest');
     }
 
+    _gotoAnimatableTestScreen = () => {
+        this.props.navigation.navigate('AnimatableTest');
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -50,7 +55,7 @@ class TestEntryScreen extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this._gotoAnimationTestScreen} style={styles.button}>
                     <Text style={styles.buttonText}>
-                        动画效果
+                        RN标准动画效果
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this._gotoDropDownMenuTestScreen} style={styles.button}>
@@ -60,7 +65,12 @@ class TestEntryScreen extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this._gotoScrollableTabViewTestScreen} style={styles.button}>
                     <Text style={styles.buttonText}>
-                        可滚动选项卡视图
+                        三方 react-native-scrollable-tab-view
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this._gotoAnimatableTestScreen} style={styles.button}>
+                    <Text style={styles.buttonText}>
+                        三方 react-native-animatable
                     </Text>
                 </TouchableOpacity>
             </View>

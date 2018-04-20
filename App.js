@@ -20,6 +20,7 @@ import FileSystemTestScreen from "./src/screens/FileSystemTest";
 import AnimationTestScreen from "./src/screens/AnimationTest";
 import DropDownMenuTestScreen from "./src/screens/DropDownMenuTest";
 import ScrollableTabViewTestScreen from "./src/screens/ScrollableTabViewTest";
+import AnimatableTestScreen from "./src/screens/AnimatableTest";
 
 //非模态Modal导航屏
 const MainStack = StackNavigator(
@@ -32,6 +33,7 @@ const MainStack = StackNavigator(
         AnimationTest: {screen: AnimationTestScreen},
         DropDownMenuTest: {screen: DropDownMenuTestScreen},
         ScrollableTabViewTest: {screen: ScrollableTabViewTestScreen},
+        AnimatableTest: {screen: AnimatableTestScreen},
     },
     {
         initialRouteName: 'Main',

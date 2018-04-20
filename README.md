@@ -6,6 +6,10 @@ npm i --save react-native-scrollable-tab-view
 * DefaultTabBar 缺省TabBar,超出视图后不可滚动
 * ScrollableTabBar 可滚动TabBar,超出视图后可以滚动
 
+- 引入[react-native-animatable](https://github.com/oblador/react-native-animatable)
+```
+npm install react-native-animatable --save
+```
 
 # 2018-04-15
 - 引入[`react-native-dropdown-menu`](https://github.com/WheelerLee/react-native-dropdown-menu)
