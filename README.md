@@ -1,3 +1,10 @@
+# 2018-04-15
+- 引入[`react-native-dropdown-menu`](https://github.com/WheelerLee/react-native-dropdown-menu)
+```
+npm i --save react-native-dropdown-menu
+```
+
+
 # 2018-04-10
 
 - 升级到 react-native 0.55.1

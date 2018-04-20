@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import {Alert, Button, StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
-
-import Moment from 'moment';
-import RNFetchBlob from 'react-native-fetch-blob'
-import {log} from '../utils/LogUtils'
+import {Alert, Button, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import DropdownMenu from 'react-native-dropdown-menu';
 
 
 class DropDownMenuTestScreen extends Component {
@@ -14,9 +11,7 @@ class DropDownMenuTestScreen extends Component {
     constructor() {
         super();
 
-        this.state = {
-
-        };
+        this.state = {};
 
 
     }
@@ -27,12 +22,42 @@ class DropDownMenuTestScreen extends Component {
     }
 
 
-
-
     render() {
+        var data = [["C", "Java", "JavaScript"], ["Python", "Ruby"], ["Swift", "Objective-C"]];
         return (
             <View style={styles.container}>
+                <DropdownMenu style={{flex: 1}}
+                              arrowImg={require('../images/dropdown-menu/dropdown_arrow.png')}      //set the arrow icon, default is a triangle
+                              checkImage={require('../images/dropdown-menu/menu_check.png')}    //set the icon of the selected item, default is a check mark
+                              bgColor={"blue"}                            //the background color of the head, default is grey
+                              tintColor={"white"}                        //the text color of the head, default is white
+                              selectItemColor={"red"}                    //the text color of the selected item, default is red
+                              data={data}
+                              maxHeight={410}                            // the max height of the menu
+                              handler={(selection, row) => alert(data[selection][row])}>
 
+                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+                        <Text>
+                            Your own view Here 1
+                        </Text>
+                        <Text>
+                            将你自己的视图内容放在这里
+                        </Text>
+                        <Text>
+                            Your own view Here 3
+                        </Text>
+                        <Text>
+                            Your own view Here 4
+                        </Text>
+                        <Text>
+                            Your own view Here 5
+                        </Text>
+                        <Text>
+                            Your own view Here 6
+                        </Text>
+                    </View>
+
+                </DropdownMenu>
             </View>
         );
     }
@@ -43,35 +68,9 @@ export default DropDownMenuTestScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        //justifyContent: 'center',
+        //alignItems: 'center',
         backgroundColor: '#F5FCFF',
         margin: 10,
-    },
-    textContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#CCCC00',
-        borderColor: `#33f`,
-        borderWidth: 0.5,
-    },
-    report: {
-        fontSize: 14,
-        textAlign: 'left',
-        margin: 10,
-        color: `#fff`
-    },
-    button: {
-        alignItems: 'center',
-        justifyContent: `center`,
-        backgroundColor: '#33f',
-        padding: 10,
-        margin: 4
-    },
-    buttonText: {
-        fontSize: 20,
-        textAlign: 'center',
-        color: `#fff`
     },
 });
