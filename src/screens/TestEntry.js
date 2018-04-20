@@ -21,22 +21,23 @@ class TestEntryScreen extends Component {
         super();
 
         this.state = {};
-        this._gotoFileSystemTestScreen = this._gotoFileSystemTestScreen.bind(this);
-        this._gotoAnimationTestScreen = this._gotoAnimationTestScreen.bind(this);
-        this._gotoDropDownMenuTestScreen = this._gotoDropDownMenuTestScreen.bind(this);
     }
 
 
-    _gotoFileSystemTestScreen() {
+    _gotoFileSystemTestScreen = () => {
         this.props.navigation.navigate('FileSystemTest');
     }
 
-    _gotoAnimationTestScreen() {
+    _gotoAnimationTestScreen = () => {
         this.props.navigation.navigate('AnimationTest');
     }
 
-    _gotoDropDownMenuTestScreen() {
+    _gotoDropDownMenuTestScreen = () => {
         this.props.navigation.navigate('DropDownMenuTest');
+    }
+
+    _gotoScrollableTabViewTestScreen = () => {
+        this.props.navigation.navigate('ScrollableTabViewTest');
     }
 
     render() {
@@ -57,6 +58,11 @@ class TestEntryScreen extends Component {
                         下拉菜单
                     </Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={this._gotoScrollableTabViewTestScreen} style={styles.button}>
+                    <Text style={styles.buttonText}>
+                        可滚动选项卡视图
+                    </Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -74,15 +80,16 @@ const styles = StyleSheet.create({
     },
 
     button: {
+        height: 20,
         alignItems: 'center',
         justifyContent: `center`,
-        backgroundColor: '#33f',
-        padding: 10,
+        backgroundColor: 'blue',
+        padding: 4,
         margin: 4
     },
 
     buttonText: {
-        fontSize: 20,
+        fontSize: 14,
         textAlign: 'center',
         color: `#fff`
     },
