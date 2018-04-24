@@ -1,3 +1,17 @@
+# 2018-4-24
+- 引入并尝试 [redux](https://github.com/reactjs/redux)
+```
+npm install --save redux
+npm install --save react-redux
+npm install --save-dev redux-devtools
+```
+安装情况 :
+```
++ redux@4.0.0
++ react-redux@5.0.7
++ redux-devtools@3.4.1
+```
+
 # 2018-04-20
 - 引入[`react-native-scrollable-tab-view`](https://github.com/skv-headless/react-native-scrollable-tab-view)
 ```

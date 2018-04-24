@@ -21,6 +21,7 @@ import AnimationTestScreen from "./src/screens/AnimationTest";
 import DropDownMenuTestScreen from "./src/screens/DropDownMenuTest";
 import ScrollableTabViewTestScreen from "./src/screens/ScrollableTabViewTest";
 import AnimatableTestScreen from "./src/screens/AnimatableTest";
+import ReduxTestScreen from "./src/screens/ReduxTest";
 
 //非模态Modal导航屏
 const MainStack = StackNavigator(
@@ -34,6 +35,7 @@ const MainStack = StackNavigator(
         DropDownMenuTest: {screen: DropDownMenuTestScreen},
         ScrollableTabViewTest: {screen: ScrollableTabViewTestScreen},
         AnimatableTest: {screen: AnimatableTestScreen},
+        ReduxTest: {screen: ReduxTestScreen},
     },
     {
         initialRouteName: 'Main',

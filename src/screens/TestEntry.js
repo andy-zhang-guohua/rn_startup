@@ -45,6 +45,10 @@ class TestEntryScreen extends Component {
         this.props.navigation.navigate('AnimatableTest');
     }
 
+    _gotoReduxTestScreen = () => {
+        this.props.navigation.navigate('ReduxTest');
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -71,6 +75,11 @@ class TestEntryScreen extends Component {
                 <TouchableOpacity onPress={this._gotoAnimatableTestScreen} style={styles.button}>
                     <Text style={styles.buttonText}>
                         三方 react-native-animatable
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this._gotoReduxTestScreen} style={styles.button}>
+                    <Text style={styles.buttonText}>
+                        Redux
                     </Text>
                 </TouchableOpacity>
             </View>
