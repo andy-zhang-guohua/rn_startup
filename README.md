@@ -1,3 +1,11 @@
+# 2018-4-25
+1. 继续尝试 Redux : 多 reducer, 每个reducer的state使用不同的类型
+    > 1. 多 reducer
+    >  * userReducer:string, 设置和取消用户名
+    >  * counterReducer:{counter,updateTime},自增或者自减计数器同时更新修改时间
+    > 2. 使用 combineReducers 合并上面两个 reducer;
+    > 3. React Native component 中使用 store.subscribe 订阅 store 的状态变化,store.getState 获取状态， 再通过 this.setState 将store的状态更新到界面上;
+    >   * 注意：这里 store 返回的状态的数据结构的变化
 # 2018-4-24
 - 引入并尝试 [redux](https://github.com/reactjs/redux)
 ```
@@ -11,6 +19,16 @@ npm install --save-dev redux-devtools
 + react-redux@5.0.7
 + redux-devtools@3.4.1
 ```
+
+
+尝试步骤 :
+
+ > 1. 使用一个reducer，使用基础数据类型作为state;
+ > 2. React Native component 中使用 store.dispatch action 触发 store 状态变化，没有抽象 action type, action creator 函数;
+ > 3. React Native component 中使用 store.subscribe 订阅 store 的状态变化,store.getState 获取状态， 再通过 this.setState 将store的状态更新到界面上;
+ > * 注意 : 这里 store 返回的状态的数据结构和这里使用的唯一一个reducer的state的结构是一样的;
+
+
 
 # 2018-04-20
 - 引入[`react-native-scrollable-tab-view`](https://github.com/skv-headless/react-native-scrollable-tab-view)

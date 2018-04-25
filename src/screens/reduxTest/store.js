@@ -1,4 +1,4 @@
 import { createStore } from 'redux'
-import counter from './reducers'
+import reducers from './reducers'
 
-export default store = createStore(counter)
+export default store = createStore(reducers)

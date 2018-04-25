@@ -1,29 +1,42 @@
 import React, {Component} from 'react';
 import {Alert, Button, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {createStore} from 'redux';
 import store from './reduxTest/store';
 
 
 class ReduxTestScreen extends Component {
     static navigationOptions = {
-        title: 'Redux尝试',
+        title: 'REDUX尝试',
     };
 
     constructor() {
         super();
 
-        this.state = {counter: store.getState()};
+        const state = store.getState();
+        this.state = {counter: state.counter.counter, userName: state.user};
 
         store.subscribe(() => {
+                console.log("in subscribe():");
                 console.log(store.getState());
-                this.setState({counter: store.getState()});
+                const state = store.getState();
+                const counter = state.counter.counter;
+                const userName = state.user;
+                this.setState({counter: counter, userName: userName});
             }
         );
 
     }
 
+
     componentDidMount() {
 
+    }
+
+    _setUserName() {
+        store.dispatch({type: 'SET_USERNAME', userName: 'Andy'});
+    }
+
+    _clearUserName() {
+        store.dispatch({type: 'CLEAR_USERNAME'});
     }
 
     _increase() {
@@ -38,8 +51,20 @@ class ReduxTestScreen extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.number}>
-                    {store.getState()}
+                    {this.state.userName}{this.state.counter}
                 </Text>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity onPress={this._setUserName} style={styles.button}>
+                        <Text style={styles.buttonText}>
+                            设置用户名
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={this._clearUserName} style={styles.button}>
+                        <Text style={styles.buttonText}>
+                            清除用户名
+                        </Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity onPress={this._increase} style={styles.button}>
                         <Text style={styles.buttonText}>
