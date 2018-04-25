@@ -1,29 +1,31 @@
 import React, {Component} from 'react';
-import {Alert, Button, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import store from './reduxTest/store';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import store from './redux/store';
 
 
 class ReduxTestScreen extends Component {
     static navigationOptions = {
-        title: 'REDUX尝试',
+        title: '使用Redux',
     };
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
+        // 使用store中的状态初始化该组件的本地状态
         const state = store.getState();
-        this.state = {counter: state.counter.counter, userName: state.user};
+        this.state = {counter: state.counter.value, userName: state.user};
 
-        store.subscribe(() => {
-                console.log("in subscribe():");
-                console.log(store.getState());
-                const state = store.getState();
-                const counter = state.counter.counter;
-                const userName = state.user;
-                this.setState({counter: counter, userName: userName});
-            }
-        );
+        const changeListener = () => {
+            // 当 store 中的状态发生变化时，
+            // 将 store 中的新状态通过this.setState 设置到本组件,
+            // 从而触发本组件被重新渲染输出
+            console.log("in subscribe():");
+            console.log(store.getState());
 
+            const state = store.getState();
+            this.setState({counter: state.counter.value, userName: state.user});
+        };
+        store.subscribe(changeListener);
     }
 
 
@@ -31,30 +33,47 @@ class ReduxTestScreen extends Component {
 
     }
 
-    _setUserName() {
-        store.dispatch({type: 'SET_USERNAME', userName: 'Andy'});
+    /**
+     * 向 store 发送dispatch 指令action,将状态变量用户名 userName 设置为 TOM
+     * @private
+     */
+    _setUserNameTOM() {
+        store.dispatch({type: 'SET_USERNAME', userName: 'TOM'});
     }
 
+    /**
+     * 向 store 发送dispatch 指令action,将状态变量用户名 userName 设置为 ''
+     * @private
+     */
     _clearUserName() {
         store.dispatch({type: 'CLEAR_USERNAME'});
     }
 
-    _increase() {
+    /**
+     * 向 store 发送dispatch 指令action,将状态变量计数器 counter 增加 1
+     * @private
+     */
+    _increaseCounterBy1() {
         store.dispatch({type: 'INCREMENT'});
     }
 
-    _decrease() {
+    /**
+     * 向 store 发送dispatch 指令action,将状态变量计数器 counter 减少 1
+     * @private
+     */
+    _decreaseCounterBy1() {
         store.dispatch({type: 'DECREMENT'});
     }
 
     render() {
+        const output = this.state.userName ? this.state.userName + ":" + this.state.counter : this.state.counter;
         return (
             <View style={styles.container}>
-                <Text style={styles.number}>
-                    {this.state.userName}{this.state.counter}
+                <Text style={styles.outputText}>
+                    {output}
                 </Text>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity onPress={this._setUserName} style={styles.button}>
+                    <TouchableOpacity onPress={this._setUserNameTOM} style={styles.button}>
                         <Text style={styles.buttonText}>
                             设置用户名
                         </Text>
@@ -66,12 +85,12 @@ class ReduxTestScreen extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity onPress={this._increase} style={styles.button}>
+                    <TouchableOpacity onPress={this._increaseCounterBy1} style={styles.button}>
                         <Text style={styles.buttonText}>
                             +1
                         </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={this._decrease} style={styles.button}>
+                    <TouchableOpacity onPress={this._decreaseCounterBy1} style={styles.button}>
                         <Text style={styles.buttonText}>
                             -1
                         </Text>
@@ -87,8 +106,6 @@ export default ReduxTestScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        //justifyContent: 'center',
-        //alignItems: 'center',
         backgroundColor: '#F5FCFF',
         margin: 0,
     },
@@ -96,7 +113,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
-        //alignItems: 'center',
         backgroundColor: 'transparent',
         margin: 0,
     },
@@ -106,10 +122,11 @@ const styles = StyleSheet.create({
         justifyContent: `center`,
         backgroundColor: 'blue',
         padding: 4,
-        margin: 4
+        margin: 8
     },
-    number: {
+    outputText: {
         fontSize: 60,
+        fontWeight: 'bold',
         textAlign: 'center',
         color: `#f00`
     },
