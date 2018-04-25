@@ -19,7 +19,7 @@ class ReduxTestScreen extends Component {
             // 当 store 中的状态发生变化时，
             // 将 store 中的新状态通过this.setState 设置到本组件,
             // 从而触发本组件被重新渲染输出
-            console.log("in subscribe():");
+            console.log("in changeListener:");
             console.log(store.getState());
 
             const state = store.getState();
