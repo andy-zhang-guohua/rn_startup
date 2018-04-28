@@ -24,6 +24,20 @@ import AnimatableTestScreen from "./src/screens/AnimatableTest";
 import ReduxTestScreen from "./src/screens/ReduxTest";
 import navigationService from './src/services/navigation/NavigationService';
 
+
+// gets the current screen from navigation state
+function getCurrentRouteName(navigationState) {
+    if (!navigationState) {
+        return null;
+    }
+    const route = navigationState.routes[navigationState.index];
+    // dive into nested navigators
+    if (route.routes) {
+        return getCurrentRouteName(route);
+    }
+    return route.routeName;
+}
+
 //非模态Modal导航屏
 const MainStack = StackNavigator(
     {
@@ -97,9 +111,20 @@ export default class App extends Component {
     }
 
     render() {
-        return <RootStack ref={navigatorRef => {
-            navigationService.setTopLevelNavigator(navigatorRef);
-        }}/>;
+        return (<RootStack
+            ref={navigatorRef => {
+                navigationService.setTopLevelNavigator(navigatorRef);
+            }}
+
+            onNavigationStateChange={(prevState, currentState) => {
+                const currentScreen = getCurrentRouteName(currentState);
+                const prevScreen = getCurrentRouteName(prevState);
+
+                if (prevScreen !== currentScreen) {
+                    console.log("屏幕切换到:" + currentScreen);
+                }
+            }}
+        />);
     }
 
     _beforeRun() {
