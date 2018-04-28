@@ -22,6 +22,7 @@ import DropDownMenuTestScreen from "./src/screens/DropDownMenuTest";
 import ScrollableTabViewTestScreen from "./src/screens/ScrollableTabViewTest";
 import AnimatableTestScreen from "./src/screens/AnimatableTest";
 import ReduxTestScreen from "./src/screens/ReduxTest";
+import navigationService from './src/services/navigation/NavigationService';
 
 //非模态Modal导航屏
 const MainStack = StackNavigator(
@@ -96,7 +97,9 @@ export default class App extends Component {
     }
 
     render() {
-        return <RootStack/>;
+        return <RootStack ref={navigatorRef => {
+            navigationService.setTopLevelNavigator(navigatorRef);
+        }}/>;
     }
 
     _beforeRun() {
