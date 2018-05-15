@@ -23,6 +23,7 @@ import ScrollableTabViewTestScreen from "./src/screens/ScrollableTabViewTest";
 import AnimatableTestScreen from "./src/screens/AnimatableTest";
 import ReduxTestScreen from "./src/screens/ReduxTest";
 import navigationService from './src/services/navigation/NavigationService';
+import NativeVideoPlayerTestScreen from "./src/screens/NativeVideoPlayerTest";
 
 
 // gets the current screen from navigation state
@@ -51,6 +52,7 @@ const MainStack = StackNavigator(
         ScrollableTabViewTest: {screen: ScrollableTabViewTestScreen},
         AnimatableTest: {screen: AnimatableTestScreen},
         ReduxTest: {screen: ReduxTestScreen},
+        NativeVideoPlayerTest: {screen: NativeVideoPlayerTestScreen},
     },
     {
         initialRouteName: 'Main',

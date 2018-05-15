@@ -49,6 +49,11 @@ class TestEntryScreen extends Component {
         this.props.navigation.navigate('ReduxTest');
     }
 
+
+    _gotoNativeVideoPlayerTestScreen = () => {
+        this.props.navigation.navigate('NativeVideoPlayerTest');
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -80,6 +85,11 @@ class TestEntryScreen extends Component {
                 <TouchableOpacity onPress={this._gotoReduxTestScreen} style={styles.button}>
                     <Text style={styles.buttonText}>
                         Redux
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this._gotoNativeVideoPlayerTestScreen} style={styles.button}>
+                    <Text style={styles.buttonText}>
+                        Native Video Player
                     </Text>
                 </TouchableOpacity>
             </View>

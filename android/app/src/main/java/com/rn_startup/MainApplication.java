@@ -3,6 +3,7 @@ package com.rn_startup;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.wog.videoplayer.VideoPlayerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
@@ -25,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new VideoPlayerPackage(),
             new RNFetchBlobPackage(), new SplashScreenReactPackage(),
           new VectorIconsPackage());
     }

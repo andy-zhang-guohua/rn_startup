@@ -1,3 +1,6 @@
+# 2018-05-15
+- 引入并尝试 [react-native-native-video-player](https://github.com/matiasfh/react-native-native-video-player)
+
 # 2018-4-25
 1. 继续尝试 Redux : 多 reducer, 每个reducer的state使用不同的类型
     > 1. 多 reducer
