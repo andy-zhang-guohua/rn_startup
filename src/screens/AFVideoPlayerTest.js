@@ -1,7 +1,6 @@
-import React, {Component} from 'react'
-import {StyleSheet, View, ScrollView, Alert, Text} from 'react-native'
-
-import Video from 'react-native-af-video-player'
+import React, {Component} from 'react';
+import {StyleSheet, View, ScrollView, Alert, Text} from 'react-native';
+import Video from 'react-native-af-video-player';
 
 
 const url = "http://customer.test.qifuy.com/repo/upload/biz/government_regulation/2018/2/12/77046da6-7f9b-461c-87ed-44b60b641a15.mp4";

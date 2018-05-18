@@ -14,6 +14,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.brentvatne.react.ReactVideoPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +34,9 @@ public class MainApplication extends Application implements ReactApplication {
             new OrientationPackage(),
             new KCKeepAwakePackage(),
             new VideoPlayerPackage(),
-            new RNFetchBlobPackage(), new SplashScreenReactPackage(),
+            new RNFetchBlobPackage(),
+            new SplashScreenReactPackage(),
+            new ReactVideoPackage(),
           new VectorIconsPackage());
     }
 
