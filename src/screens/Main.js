@@ -27,7 +27,7 @@ class MainScreen extends Component {
         return {
             title: '首页',
             headerRight: (
-                <Button onPress={params.increaseCount} title="+1" color="#333"/>
+                <Button onPress={params.increaseCount?params.increaseCount:()=>{}} title="+1" color="#333"/>
             ),
         };
     };
@@ -174,7 +174,7 @@ class MainScreen extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    {userRemembered ? username + "," : null}欢迎来到 React Native 的世界!
+                    {userRemembered ? username + "," : null}欢迎来到 React Native 的世界!{this.state.count}
                 </Text>
                 <Text style={styles.instructions}>
                     {instructions}

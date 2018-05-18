@@ -24,6 +24,7 @@ import AnimatableTestScreen from "./src/screens/AnimatableTest";
 import ReduxTestScreen from "./src/screens/ReduxTest";
 import navigationService from './src/services/navigation/NavigationService';
 import NativeVideoPlayerTestScreen from "./src/screens/NativeVideoPlayerTest";
+import AFVideoPlayerTestScreen from "./src/screens/AFVideoPlayerTest";
 import StatusBarTestScreen from "./src/screens/StatusBarTest";
 
 
@@ -54,6 +55,7 @@ const MainStack = StackNavigator(
         AnimatableTest: {screen: AnimatableTestScreen},
         ReduxTest: {screen: ReduxTestScreen},
         NativeVideoPlayerTest: {screen: NativeVideoPlayerTestScreen},
+        AFVideoPlayerTest: {screen: AFVideoPlayerTestScreen},
         StatusBarTest: {screen: StatusBarTestScreen},
     },
     {

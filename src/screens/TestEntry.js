@@ -54,6 +54,9 @@ class TestEntryScreen extends Component {
         this.props.navigation.navigate('NativeVideoPlayerTest');
     }
 
+    _gotoAFPlayerTestScreen = () => {
+        this.props.navigation.navigate('AFVideoPlayerTest');
+    }
 
     _gotoStatusBarTestScreen = () => {
         this.props.navigation.navigate('StatusBarTest');
@@ -96,6 +99,11 @@ class TestEntryScreen extends Component {
                 <TouchableOpacity onPress={this._gotoNativeVideoPlayerTestScreen} style={styles.button}>
                     <Text style={styles.buttonText}>
                         Native Video Player
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this._gotoAFPlayerTestScreen} style={styles.button}>
+                    <Text style={styles.buttonText}>
+                        AF Video Player
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this._gotoStatusBarTestScreen} style={styles.button}>

@@ -3,6 +3,9 @@ package com.rn_startup;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.github.yamill.orientation.OrientationPackage;
+import com.corbt.keepawake.KCKeepAwakePackage;
 import com.wog.videoplayer.VideoPlayerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
@@ -26,6 +29,9 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new LinearGradientPackage(),
+            new OrientationPackage(),
+            new KCKeepAwakePackage(),
             new VideoPlayerPackage(),
             new RNFetchBlobPackage(), new SplashScreenReactPackage(),
           new VectorIconsPackage());

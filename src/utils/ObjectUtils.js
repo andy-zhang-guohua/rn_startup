@@ -1,3 +1,5 @@
+import * as S from "underscore.string";
+
 /**
  * 判断某个表达式是否字符串类型
  * @param expr
@@ -78,24 +80,15 @@ export function copyArray(arr) {
     return arr.map((e) => e);
 }
 
-export function toMap(obj) {
-    if (!obj)
-        return new Map();
+/**
+ * 是一个非空字符串
+ * @param expr
+ * @returns {boolean}
+ */
+export function isNonBlankString(expr) {
+    const yes = isString(expr);
+    if (!yes)
+        return false;
 
-
-    if (obj.constructor.name.toLowerCase() === 'object') {
-        const map = new Map();
-        Object.keys(obj).forEach(key => {
-            map.set(key, obj[key])
-        });
-        return map;
-    }
-
-
-    if (obj.constructor.name.toLowerCase() === 'map') {
-        let map = new Map([...obj.entries()]);
-        return map;
-    }
-
-    return new Map();
+    return !S.isBlank(expr);
 }

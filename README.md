@@ -1,3 +1,24 @@
+# 2018-05-18
+- 引入[`react-native-af-video-player`](https://github.com/abbasfreestyle/react-native-af-video-player) 以下为依赖项
+```
+npm install --save react-native-af-video-player
+npm install --save react-native-keep-awake
+npm install --save react-native-orientation
+npm install --save react-native-linear-gradient
+npm install --save react-native-slider
+
+react-native link react-native-keep-awake
+react-native link react-native-orientation
+react-native link react-native-linear-gradient
+
+```
+
+ - [react-native-video](https://github.com/react-native-community/react-native-video)
+```
+npm install --save react-native-video
+
+react-native link react-native-video
+```
 # 2018-05-15
 - 引入并尝试 [react-native-native-video-player](https://github.com/matiasfh/react-native-native-video-player)
 
