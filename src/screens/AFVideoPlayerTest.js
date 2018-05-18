@@ -44,7 +44,7 @@ class AFVideoPlayerTestScreen extends Component {
     render() {
         const logo = 'https://your-url.com/logo.png'
         const placeholder = 'https://your-url.com/placeholder.png'
-        const title = 'My video title'
+        const title = '测试视频'
 
         return (<View style={styles.container}>
                 <Video
@@ -55,10 +55,10 @@ class AFVideoPlayerTestScreen extends Component {
                     placeholder={placeholder}
                     onMorePress={() => this.onMorePress()}
                     onFullScreen={status => this.onFullScreen(status)}
-                    fullScreenOnly
+
                 />
                 <ScrollView>
-                    <Text>Some content here...</Text>
+                    <Text>这个视频效果怎么样 ...... </Text>
                 </ScrollView>
             </View>
         )
