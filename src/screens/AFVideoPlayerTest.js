@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, ScrollView, Alert, Text} from 'react-native';
 import Video from 'react-native-af-video-player';
+import toast from '../utils/ToastUtils'
 
 
 // 例子 : 使用网络视频地址
@@ -32,9 +33,12 @@ class AFVideoPlayerTestScreen extends Component {
 
     onFullScreen(status) {
         // Set the params to pass in fullscreen status to navigationOptions
+        const fullscreen=!status;
         this.props.navigation.setParams({
-            fullscreen: !status
+            fullscreen: fullscreen
         })
+
+        toast.show(fullscreen?"将要全屏":"退出全屏");
     }
 
     onMorePress() {
