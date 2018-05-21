@@ -1,5 +1,36 @@
+# 2018-05-21
+- [react-native-pdf](https://github.com/wonday/react-native-pdf)
+- [react-native-root-toast](https://github.com/magicismight/react-native-root-toast)
+   > npm install react-native-root-toast
+   > 使用方法如下：
+   ```
+   import Toast from 'react-native-root-toast';
+
+   Toast.show('This is a message', {
+    duration: Toast.durations.LONG,
+    position: Toast.positions.BOTTOM,
+    shadow: true,
+    animation: true,
+    hideOnPress: true,
+    delay: 0,
+    onShow: () => {
+        // calls on toast\`s appear animation start
+    },
+    onShown: () => {
+        // calls on toast\`s appear animation end.
+    },
+    onHide: () => {
+        // calls on toast\`s hide animation start.
+    },
+    onHidden: () => {
+        // calls on toast\`s hide animation end.
+    }
+    ```
+
 # 2018-05-18
-- 引入[`react-native-af-video-player`](https://github.com/abbasfreestyle/react-native-af-video-player) 以下为依赖项
+* React Native 中播放视频
+    * 引入[`react-native-af-video-player`](https://github.com/abbasfreestyle/react-native-af-video-player) 以下为依赖项
+
 ```
 npm install --save react-native-af-video-player
 npm install --save react-native-keep-awake
@@ -13,7 +44,7 @@ react-native link react-native-linear-gradient
 
 ```
 
- - [react-native-video](https://github.com/react-native-community/react-native-video)
+    - [react-native-video](https://github.com/react-native-community/react-native-video)
 ```
 npm install --save react-native-video
 
@@ -124,14 +155,13 @@ npm i --save react-native-dropdown-menu
 	// TODO
 
 3. React Native 中展示PDF
-	
 	//TODO
 4. React Native 中播放音乐
-	
+
 	//TODO
 5. React Native 中播放视频
-	
-	//TODO
+	2018-05-18 解决
+
 6. React Native 中使用地理位置
 	
 	//TODO

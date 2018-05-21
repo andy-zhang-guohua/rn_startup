@@ -39,10 +39,10 @@ export default class FlatListBasics extends Component {
                 <FlatList horizontal
                           onViewableItemsChanged={this.onViewableItemsChanged}
                           data={[
-                              {img: require('../images/banner/1.jpg'), key: `1`},
-                              {img: require('../images/banner/2.jpg'), key: `2`},
-                              {img: require('../images/banner/3.jpg'), key: `3`},
-                              {img: require('../images/banner/4.jpg'), key: `4`},
+                              {img: require('../assets/images/banner/1.jpg'), key: `1`},
+                              {img: require('../assets/images/banner/2.jpg'), key: `2`},
+                              {img: require('../assets/images/banner/3.jpg'), key: `3`},
+                              {img: require('../assets/images/banner/4.jpg'), key: `4`},
                           ]}
                           renderItem={({item}) => this._renderItem(item)}
                 />

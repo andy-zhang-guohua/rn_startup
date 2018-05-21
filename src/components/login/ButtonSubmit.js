@@ -11,7 +11,7 @@ import {
 
 import { log } from '../../utils/LogUtils'
 
-import spinner from '../../images/loading.gif';
+import spinner from '../../assets/images/loading.gif';
 
 export default class ButtonSubmit extends Component {
 	constructor(props) {

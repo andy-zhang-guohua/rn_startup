@@ -6,7 +6,7 @@ import {
 	View,
 } from 'react-native';
 
-import imageWallpaper from '../../images/wallpaper.png';
+import imageWallpaper from '../../assets/images/wallpaper.png';
 
 export default class Wallpaper extends Component {
 	render() {

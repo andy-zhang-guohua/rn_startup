@@ -27,8 +27,8 @@ class DropDownMenuTestScreen extends Component {
         return (
             <View style={styles.container}>
                 <DropdownMenu style={{flex: 1}}
-                              arrowImg={require('../images/dropdown-menu/dropdown_arrow.png')}      //set the arrow icon, default is a triangle
-                              checkImage={require('../images/dropdown-menu/menu_check.png')}    //set the icon of the selected item, default is a check mark
+                              arrowImg={require('../assets/images/dropdown-menu/dropdown_arrow.png')}      //set the arrow icon, default is a triangle
+                              checkImage={require('../assets/images/dropdown-menu/menu_check.png')}    //set the icon of the selected item, default is a check mark
                               bgColor={"blue"}                            //the background color of the head, default is grey
                               tintColor={"white"}                        //the text color of the head, default is white
                               selectItemColor={"red"}                    //the text color of the selected item, default is red

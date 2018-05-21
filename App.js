@@ -26,7 +26,7 @@ import navigationService from './src/services/navigation/NavigationService';
 import NativeVideoPlayerTestScreen from "./src/screens/NativeVideoPlayerTest";
 import AFVideoPlayerTestScreen from "./src/screens/AFVideoPlayerTest";
 import StatusBarTestScreen from "./src/screens/StatusBarTest";
-
+import Orientation from 'react-native-orientation';
 
 // gets the current screen from navigation state
 function getCurrentRouteName(navigationState) {
@@ -113,7 +113,22 @@ export default class App extends Component {
     componentDidMount() {
         Log.log('应用程序入口组件已经挂载');
 
+
+        this._initOrientation();
+
         SplashScreen.hide();
+    }
+
+    // 初始化屏幕方向信息
+    _initOrientation() {
+        // this locks the view to Portrait Mode
+        Orientation.lockToPortrait();
+
+        // this locks the view to Landscape Mode
+        // Orientation.lockToLandscape();
+
+        // this unlocks any previous locks to all Orientations
+        // Orientation.unlockAllOrientations();
     }
 
     render() {
