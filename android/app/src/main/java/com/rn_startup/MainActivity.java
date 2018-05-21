@@ -6,6 +6,10 @@ import com.facebook.react.ReactActivity;
 import android.os.Bundle;
 import org.devio.rn.splashscreen.SplashScreen;
 
+// 以下两行是 react-native-orientation 需要
+import android.content.Intent; // <--- import
+import android.content.res.Configuration; // <--- import
+
 public class MainActivity extends ReactActivity {
 
     /**
@@ -22,4 +26,13 @@ public class MainActivity extends ReactActivity {
         SplashScreen.show(this);// 该行是为了SplashScreen功能: 展示splash屏幕
         super.onCreate(savedInstanceState);
     }
+
+    // for react-native-orientation
+     @Override
+     public void onConfigurationChanged(Configuration newConfig) {
+         super.onConfigurationChanged(newConfig);
+         Intent intent = new Intent("onConfigurationChanged");
+         intent.putExtra("newConfig", newConfig);
+         this.sendBroadcast(intent);
+     }
 }

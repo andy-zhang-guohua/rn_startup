@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, ScrollView, Alert, Text} from 'react-native';
+import {Alert, ScrollView, StyleSheet, Text, View} from 'react-native';
 import Video from 'react-native-af-video-player';
 import toast from '../utils/ToastUtils'
-
+import Orientation from 'react-native-orientation';
 
 // 例子 : 使用网络视频地址
 //const url = "http://customer.test.qifuy.com/repo/upload/biz/government_regulation/2018/2/12/77046da6-7f9b-461c-87ed-44b60b641a15.mp4";
@@ -31,14 +31,48 @@ class AFVideoPlayerTestScreen extends Component {
         }
     }
 
+    componentDidMount() {
+        Orientation.unlockAllOrientations();
+        Orientation.addOrientationListener(this._orientationDidChange);
+    }
+
+    _orientationDidChange = (orientation) => {
+        if (orientation === 'LANDSCAPE') {
+            // do something with landscape layout
+            console.log("横屏模式");
+        } else if (orientation === 'PORTRAIT') {
+            // do something with portrait layout
+            console.log("竖屏模式");
+        }
+        else if (orientation === 'PORTRAITUPSIDEDOWN') {
+            // do something with portrait upside down layout
+            console.log("竖屏颠倒模式");
+        }
+        else {
+            // do something with known layout
+            console.log("什么模式");
+        }
+    }
+
+    componentWillUnmount() {
+        Orientation.getOrientation((err, orientation) => {
+            console.log(`Current Device Orientation: ${orientation}`);
+        });
+
+        Orientation.lockToPortrait();
+
+        // Remember to remove listener
+        Orientation.removeOrientationListener(this._orientationDidChange);
+    }
+
     onFullScreen(status) {
         // Set the params to pass in fullscreen status to navigationOptions
-        const fullscreen=!status;
+        const fullscreen = !status;
         this.props.navigation.setParams({
             fullscreen: fullscreen
         })
 
-        toast.show(fullscreen?"将要全屏":"退出全屏");
+        toast.showAtBottom(fullscreen ? "非全屏" : "全屏");
     }
 
     onMorePress() {

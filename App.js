@@ -119,6 +119,11 @@ export default class App extends Component {
         SplashScreen.hide();
     }
 
+    componentWillUnmount() {
+
+    }
+
+
     // 初始化屏幕方向信息
     _initOrientation() {
         // this locks the view to Portrait Mode
@@ -128,7 +133,7 @@ export default class App extends Component {
         // Orientation.lockToLandscape();
 
         // this unlocks any previous locks to all Orientations
-        // Orientation.unlockAllOrientations();
+        //Orientation.unlockAllOrientations();
     }
 
     render() {

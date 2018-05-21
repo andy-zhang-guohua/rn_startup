@@ -12,7 +12,7 @@ class ToastUtils extends Component {
             duration: Toast.durations.SHORT,
             position: Toast.positions.CENTER,
             shadow: true,
-            animation: true,
+            animation: false,
             hideOnPress: true,
             delay: 0,
             backgroundColor: 'black'
@@ -24,7 +24,7 @@ class ToastUtils extends Component {
             duration: Toast.durations.SHORT,
             position: Toast.positions.BOTTOM,
             shadow: true,
-            animation: true,
+            animation: false,
             hideOnPress: true,
             delay: 0,
             backgroundColor: 'black'

@@ -28,8 +28,11 @@
     ```
 
 # 2018-05-18
-* React Native 中播放视频
-    * 引入[`react-native-af-video-player`](https://github.com/abbasfreestyle/react-native-af-video-player) 以下为依赖项
+- React Native 中播放视频,主要是引入以下组件
+
+   - [`react-native-af-video-player`](https://github.com/abbasfreestyle/react-native-af-video-player)
+   - [`react-native-video`](https://github.com/react-native-community/react-native-video) 视频播放组件
+   - [`react-native-orientation`](https://github.com/yamill/react-native-orientation) 横屏竖屏控制
 
 ```
 npm install --save react-native-af-video-player
@@ -37,19 +40,15 @@ npm install --save react-native-keep-awake
 npm install --save react-native-orientation
 npm install --save react-native-linear-gradient
 npm install --save react-native-slider
+npm install --save react-native-video
 
 react-native link react-native-keep-awake
 react-native link react-native-orientation
 react-native link react-native-linear-gradient
-
-```
-
-    - [react-native-video](https://github.com/react-native-community/react-native-video)
-```
-npm install --save react-native-video
-
 react-native link react-native-video
 ```
+
+
 # 2018-05-15
 - 引入并尝试 [react-native-native-video-player](https://github.com/matiasfh/react-native-native-video-player)
 
