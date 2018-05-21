@@ -32,10 +32,18 @@ class AFVideoPlayerTestScreen extends Component {
     }
 
     componentDidMount() {
+        // 当前屏幕允许横屏竖屏
         Orientation.unlockAllOrientations();
+
+        // 添加屏幕转动监听
         Orientation.addOrientationListener(this._orientationDidChange);
     }
 
+    /**
+     * 屏幕转动监听逻辑
+     * @param orientation
+     * @private
+     */
     _orientationDidChange = (orientation) => {
         if (orientation === 'LANDSCAPE') {
             // do something with landscape layout
@@ -59,6 +67,7 @@ class AFVideoPlayerTestScreen extends Component {
             console.log(`Current Device Orientation: ${orientation}`);
         });
 
+        // 关闭屏幕转动，不允许横屏
         Orientation.lockToPortrait();
 
         // Remember to remove listener
