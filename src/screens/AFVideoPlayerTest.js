@@ -10,6 +10,9 @@ import Orientation from 'react-native-orientation';
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    videoContainer: {
+        margin: 10
     }
 })
 
@@ -100,6 +103,10 @@ class AFVideoPlayerTestScreen extends Component {
                 </ScrollView>
                 {this._renderVideo2()}
                 <ScrollView>
+                    <Text>Big Buck Bunny again</Text>
+                </ScrollView>
+                {this._renderVideo3()}
+                <ScrollView>
                     <Text>这个视频效果怎么样 ...... </Text>
                 </ScrollView>
             </ScrollView>
@@ -112,6 +119,28 @@ class AFVideoPlayerTestScreen extends Component {
         const logo = 'http://img.bimg.126.net/photo/RxnoPmwl9wRK8fx8AokiGQ==/5753911473919624232.jpg'
         const placeholder = 'http://e.hiphotos.baidu.com/image/pic/item/d6ca7bcb0a46f21fca6fafecfa246b600c33ae32.jpg'
         const title = 'Big Buck Bunny'
+        return this._renderVideo(url, placeholder, title, logo);
+    }
+
+    _renderVideo2() {
+        // 例子 : 本地视频文件
+        const url = require("../assets/videos/small.mp4");
+        const logo = 'http://img.bimg.126.net/photo/RxnoPmwl9wRK8fx8AokiGQ==/5753911473919624232.jpg'
+        const placeholder = 'http://e.hiphotos.baidu.com/image/pic/item/d6ca7bcb0a46f21fca6fafecfa246b600c33ae32.jpg'
+        const title = '小玩具会转动'
+        return this._renderVideo(url, placeholder, title,logo);
+    }
+
+    _renderVideo3() {
+        // 例子 : 本地视频文件
+        const url = require("../assets/videos/BigBuckBunny.mp4");
+        const logo = 'http://img.bimg.126.net/photo/RxnoPmwl9wRK8fx8AokiGQ==/5753911473919624232.jpg'
+        const placeholder = 'http://e.hiphotos.baidu.com/image/pic/item/d6ca7bcb0a46f21fca6fafecfa246b600c33ae32.jpg'
+        const title = 'Big Buck Bunny 再来一次'
+        return this._renderVideo(url, placeholder, title,logo);
+    }
+
+    _renderVideo(url, placeholder, title, logo = '') {
         return (<Video
             url={url}
             autoPlay={false}
@@ -120,24 +149,10 @@ class AFVideoPlayerTestScreen extends Component {
             placeholder={placeholder}
             onMorePress={() => this.onMorePress()}
             onFullScreen={status => this.onFullScreen(status)}
+            inlineOnly
         />);
-    }
 
-    _renderVideo2() {
-        // 例子 : 本地视频文件
-        const url = require("../assets/videos/small.mp4");
-        const placeholder = 'http://e.hiphotos.baidu.com/image/pic/item/d6ca7bcb0a46f21fca6fafecfa246b600c33ae32.jpg'
-        const title = '小玩具会转动'
-        return (<Video
-            url={url}
-            autoPlay={false}
-            title={title}
-            placeholder={placeholder}
-            onMorePress={() => this.onMorePress()}
-            onFullScreen={status => this.onFullScreen(status)}
-        />);
     }
-
 }
 
 export default AFVideoPlayerTestScreen;
