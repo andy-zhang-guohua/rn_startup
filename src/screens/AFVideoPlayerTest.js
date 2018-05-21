@@ -23,6 +23,7 @@ class AFVideoPlayerTestScreen extends Component {
             header,
             // For the tab navigators, you can hide the tab bar like so
             tabBarVisible,
+            title: 'AF视频播放测试',
         }
     }
 
@@ -34,11 +35,7 @@ class AFVideoPlayerTestScreen extends Component {
     }
 
     onMorePress() {
-        Alert.alert(
-            'Boom',
-            'This is an action call!',
-            [{text: 'Aw yeah!'}]
-        )
+        Alert.alert('Boom', 'This is an action call!', [{text: '关闭'}, {text: 'Close'}])
     }
 
     render() {
