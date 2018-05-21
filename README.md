@@ -26,6 +26,12 @@
         // calls on toast\`s hide animation end.
     }
     ```
+- 目前视频播放存在的问题(使用react-native-af-video-player + react-native-video)
+  - 同一屏幕上多个视频，如何控制只有一个处于播放中 ?
+     - 思路 : 每个视频播放器的开始停止可以监听 + 每个视频播放器有开始/停止播放方法供外部调用
+  - 如何全屏播放 ?
+     - react-native-af-video-player 要求必须使用自己的ScrollView,不能使用RN标准ScrollView;
+     - 在一个ScrollView中使用多个视频时，全屏播放某一个时，上下滚动屏幕也能看到其他视频。
 
 # 2018-05-18
 - React Native 中播放视频,主要是引入以下组件

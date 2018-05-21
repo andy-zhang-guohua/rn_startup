@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Alert, ScrollView, StyleSheet, Text, View} from 'react-native';
-import Video from 'react-native-af-video-player';
+import {Alert, StyleSheet, Text, View} from 'react-native';
+import Video, {ScrollView} from 'react-native-af-video-player';
 import toast from '../utils/ToastUtils'
 import Orientation from 'react-native-orientation';
 
@@ -99,11 +99,19 @@ class AFVideoPlayerTestScreen extends Component {
                 </ScrollView>
                 {this._renderVideo1()}
                 <ScrollView>
-                    <Text>Small Toy</Text>
+                    <Text>
+                        Small Toy这是一个小玩具，会转动，应该是一个测试视频
+                        Small Toy这是一个小玩具，会转动，应该是一个测试视频
+                        Small Toy这是一个小玩具，会转动，应该是一个测试视频
+                        Small Toy这是一个小玩具，会转动，应该是一个测试视频
+                        Small Toy这是一个小玩具，会转动，应该是一个测试视频
+                    </Text>
                 </ScrollView>
                 {this._renderVideo2()}
                 <ScrollView>
-                    <Text>Big Buck Bunny again</Text>
+                    <Text>Big Buck Bunny again
+                        哈哈
+                    </Text>
                 </ScrollView>
                 {this._renderVideo3()}
                 <ScrollView>
@@ -128,7 +136,7 @@ class AFVideoPlayerTestScreen extends Component {
         const logo = 'http://img.bimg.126.net/photo/RxnoPmwl9wRK8fx8AokiGQ==/5753911473919624232.jpg'
         const placeholder = 'http://e.hiphotos.baidu.com/image/pic/item/d6ca7bcb0a46f21fca6fafecfa246b600c33ae32.jpg'
         const title = '小玩具会转动'
-        return this._renderVideo(url, placeholder, title,logo);
+        return this._renderVideo(url, placeholder, title, logo);
     }
 
     _renderVideo3() {
@@ -137,7 +145,7 @@ class AFVideoPlayerTestScreen extends Component {
         const logo = 'http://img.bimg.126.net/photo/RxnoPmwl9wRK8fx8AokiGQ==/5753911473919624232.jpg'
         const placeholder = 'http://e.hiphotos.baidu.com/image/pic/item/d6ca7bcb0a46f21fca6fafecfa246b600c33ae32.jpg'
         const title = 'Big Buck Bunny 再来一次'
-        return this._renderVideo(url, placeholder, title,logo);
+        return this._renderVideo(url, placeholder, title, logo);
     }
 
     _renderVideo(url, placeholder, title, logo = '') {
@@ -149,7 +157,9 @@ class AFVideoPlayerTestScreen extends Component {
             placeholder={placeholder}
             onMorePress={() => this.onMorePress()}
             onFullScreen={status => this.onFullScreen(status)}
-            inlineOnly
+            //inlineOnly
+            rotateToFullScreen
+            lockPortraitOnFsExit
         />);
 
     }
