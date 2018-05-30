@@ -70,6 +70,7 @@ const MainStack = StackNavigator(
             headerTitleStyle: {
                 fontWeight: 'bold',
             },
+            gesturesEnabled: true
         },
     }
 );
