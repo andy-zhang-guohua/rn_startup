@@ -1,17 +1,5 @@
 import React, {Component} from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    Alert,
-    TouchableOpacity
-} from 'react-native';
-
-import * as PasswordUtils from '../utils/PasswordUtils'
-import {log} from '../utils/LogUtils'
-import {userService} from '../services/UserService'
-import {appPreference} from '../services/AppPreferenceService'
-import AnimatableTestScreen from "./AnimatableTest";
+import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 class TestEntryScreen extends Component {
     static navigationOptions = {
@@ -62,6 +50,10 @@ class TestEntryScreen extends Component {
         this.props.navigation.navigate('StatusBarTest');
     }
 
+    _gotoResponderTestScreen = () => {
+        this.props.navigation.navigate('ResponderTest');
+    }
+
 
     render() {
         return (
@@ -109,6 +101,11 @@ class TestEntryScreen extends Component {
                 <TouchableOpacity onPress={this._gotoStatusBarTestScreen} style={styles.button}>
                     <Text style={styles.buttonText}>
                         状态条
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this._gotoResponderTestScreen} style={styles.button}>
+                    <Text style={styles.buttonText}>
+                        Responder
                     </Text>
                 </TouchableOpacity>
             </View>
