@@ -28,6 +28,7 @@ import AFVideoPlayerTestScreen from "./src/screens/AFVideoPlayerTest";
 import StatusBarTestScreen from "./src/screens/StatusBarTest";
 import Orientation from 'react-native-orientation';
 import ResponderTestScreen from "./src/screens/ResponderTest";
+import PanResponderTestScreen from "./src/screens/PanResponderTest";
 
 // gets the current screen from navigation state
 function getCurrentRouteName(navigationState) {
@@ -59,6 +60,7 @@ const MainStack = StackNavigator(
         AFVideoPlayerTest: {screen: AFVideoPlayerTestScreen},
         StatusBarTest: {screen: StatusBarTestScreen},
         ResponderTest: {screen: ResponderTestScreen},
+        PanResponderTest: {screen: PanResponderTestScreen},
     },
     {
         initialRouteName: 'Main',

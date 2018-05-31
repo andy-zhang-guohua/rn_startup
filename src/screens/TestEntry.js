@@ -55,6 +55,11 @@ class TestEntryScreen extends Component {
     }
 
 
+    _gotoPanResponderTestScreen = () => {
+        this.props.navigation.navigate('PanResponderTest');
+    }
+
+
     render() {
         return (
             <View style={styles.container}>
@@ -106,6 +111,11 @@ class TestEntryScreen extends Component {
                 <TouchableOpacity onPress={this._gotoResponderTestScreen} style={styles.button}>
                     <Text style={styles.buttonText}>
                         Responder
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this._gotoPanResponderTestScreen} style={styles.button}>
+                    <Text style={styles.buttonText}>
+                        PanResponder
                     </Text>
                 </TouchableOpacity>
             </View>
