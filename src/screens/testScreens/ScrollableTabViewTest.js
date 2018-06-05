@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Alert, Button, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import ScrollableTabView, {DefaultTabBar, ScrollableTabBar} from 'react-native-scrollable-tab-view';
-import ModalRegionSelect from '../widgets/ModalRegionSelectInTabs'
-import SelectableTree from '../models/SelectableTree'
-import * as ObjectUtils from "../utils/ObjectUtils";
+import ModalRegionSelect from '../../widgets/ModalRegionSelectInTabs'
+import SelectableTree from '../../models/SelectableTree'
+import * as ObjectUtils from "../../utils/ObjectUtils";
 
 const regions = [{
         "regionCode": "110000", "regionName": "北京市",

@@ -16,19 +16,20 @@ import SplashScreen from 'react-native-splash-screen';
 import * as Log from './src/utils/LogUtils'
 import {debuger} from './src/utils/DebugUtils'
 import TestEntryScreen from "./src/screens/TestEntry";
-import FileSystemTestScreen from "./src/screens/FileSystemTest";
-import AnimationTestScreen from "./src/screens/AnimationTest";
-import DropDownMenuTestScreen from "./src/screens/DropDownMenuTest";
-import ScrollableTabViewTestScreen from "./src/screens/ScrollableTabViewTest";
-import AnimatableTestScreen from "./src/screens/AnimatableTest";
-import ReduxTestScreen from "./src/screens/ReduxTest";
+import FileSystemTestScreen from "./src/screens/testScreens/FileSystemTest";
+import AnimationTestScreen from "./src/screens/testScreens/AnimationTest";
+import DropDownMenuTestScreen from "./src/screens/testScreens/DropDownMenuTest";
+import ScrollableTabViewTestScreen from "./src/screens/testScreens/ScrollableTabViewTest";
+import AnimatableTestScreen from "./src/screens/testScreens/AnimatableTest";
+import ReduxTestScreen from "./src/screens/testScreens/ReduxTest";
 import navigationService from './src/services/navigation/NavigationService';
-import NativeVideoPlayerTestScreen from "./src/screens/NativeVideoPlayerTest";
-import AFVideoPlayerTestScreen from "./src/screens/AFVideoPlayerTest";
-import StatusBarTestScreen from "./src/screens/StatusBarTest";
+import NativeVideoPlayerTestScreen from "./src/screens/testScreens/NativeVideoPlayerTest";
+import AFVideoPlayerTestScreen from "./src/screens/testScreens/AFVideoPlayerTest";
+import StatusBarTestScreen from "./src/screens/testScreens/StatusBarTest";
 import Orientation from 'react-native-orientation';
-import ResponderTestScreen from "./src/screens/ResponderTest";
-import PanResponderTestScreen from "./src/screens/PanResponderTest";
+import ResponderTestScreen from "./src/screens/testScreens/ResponderTest";
+import PanResponderTestScreen from "./src/screens/testScreens/PanResponderTest";
+import Amap3dTestScreen from "./src/screens/testScreens/Amap3dTest";
 
 // gets the current screen from navigation state
 function getCurrentRouteName(navigationState) {
@@ -61,6 +62,7 @@ const MainStack = StackNavigator(
         StatusBarTest: {screen: StatusBarTestScreen},
         ResponderTest: {screen: ResponderTestScreen},
         PanResponderTest: {screen: PanResponderTestScreen},
+        Amap3dTest: {screen: Amap3dTestScreen},
     },
     {
         initialRouteName: 'Main',

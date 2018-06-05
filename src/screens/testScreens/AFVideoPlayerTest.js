@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Alert, StyleSheet, Text, View} from 'react-native';
 import Video, {ScrollView} from 'react-native-af-video-player';
-import toast from '../utils/ToastUtils'
+import toast from '../../utils/ToastUtils'
 import Orientation from 'react-native-orientation';
 
 // 例子 : 使用网络视频地址
@@ -123,7 +123,7 @@ class AFVideoPlayerTestScreen extends Component {
 
     _renderVideo1() {
         // 例子 : 本地视频文件
-        const url = require("../assets/videos/BigBuckBunny.mp4");
+        const url = require("../../assets/videos/BigBuckBunny.mp4");
         const logo = 'http://img.bimg.126.net/photo/RxnoPmwl9wRK8fx8AokiGQ==/5753911473919624232.jpg'
         const placeholder = 'http://e.hiphotos.baidu.com/image/pic/item/d6ca7bcb0a46f21fca6fafecfa246b600c33ae32.jpg'
         const title = 'Big Buck Bunny'
@@ -132,7 +132,7 @@ class AFVideoPlayerTestScreen extends Component {
 
     _renderVideo2() {
         // 例子 : 本地视频文件
-        const url = require("../assets/videos/small.mp4");
+        const url = require("../../assets/videos/small.mp4");
         const logo = 'http://img.bimg.126.net/photo/RxnoPmwl9wRK8fx8AokiGQ==/5753911473919624232.jpg'
         const placeholder = 'http://e.hiphotos.baidu.com/image/pic/item/d6ca7bcb0a46f21fca6fafecfa246b600c33ae32.jpg'
         const title = '小玩具会转动'
@@ -141,7 +141,7 @@ class AFVideoPlayerTestScreen extends Component {
 
     _renderVideo3() {
         // 例子 : 本地视频文件
-        const url = require("../assets/videos/BigBuckBunny.mp4");
+        const url = require("../../assets/videos/BigBuckBunny.mp4");
         const logo = 'http://img.bimg.126.net/photo/RxnoPmwl9wRK8fx8AokiGQ==/5753911473919624232.jpg'
         const placeholder = 'http://e.hiphotos.baidu.com/image/pic/item/d6ca7bcb0a46f21fca6fafecfa246b600c33ae32.jpg'
         const title = 'Big Buck Bunny 再来一次'

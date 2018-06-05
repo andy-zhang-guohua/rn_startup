@@ -73,7 +73,7 @@ class AnimationTestScreen extends Component {
                     </Animated.View>
                 </TouchableOpacity>
                 <Animated.Image style={{flex: 1}}                 // 可选的基本组件类型: Image, Text, View
-                                source={require('../assets/images/logo.png')}
+                                source={require('../../assets/images/logo.png')}
                                 style={{
                                     flex: 1,
                                     transform: [                        // `transform`是一个有序数组（动画按顺序执行）

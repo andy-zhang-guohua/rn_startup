@@ -12,7 +12,7 @@ import {
     View
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import AnimatableExplorerView from './animatableExplorer/AnimatableExplorerView';
+import AnimatableExplorerView from '../animatableExplorer/AnimatableExplorerView';
 
 class AnimatableTestScreen extends Component {
     static navigationOptions = {

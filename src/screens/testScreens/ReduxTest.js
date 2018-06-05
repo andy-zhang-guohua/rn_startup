@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import store from './redux/store';
+import store from '../redux/store';
 
 
 class ReduxTestScreen extends Component {

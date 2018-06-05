@@ -3,7 +3,7 @@ import {Alert, Button, StyleSheet, Text, TouchableOpacity, View, Image} from 're
 
 import Moment from 'moment';
 import RNFetchBlob from 'react-native-fetch-blob'
-import {log} from '../utils/LogUtils'
+import {log} from '../../utils/LogUtils'
 
 
 class FileSystemTestScreen extends Component {
