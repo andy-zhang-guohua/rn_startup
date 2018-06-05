@@ -2,21 +2,41 @@ import React, {Component} from 'react';
 import {
     Alert,
     Button,
+    Dimensions,
     Image,
     Platform,
     StyleSheet,
     Switch,
     Text,
+    Picker,
     TouchableOpacity,
-    View,
-    Dimensions
+    View
 } from 'react-native';
 import {MapView} from 'react-native-amap3d'
 
 export default class Amap3dTestScreen extends Component {
-    static navigationOptions = {
-        title: '高德地图',
-    };
+    static navigationOptions = ({navigation}) => {
+        const {state, setParams} = navigation
+        state.params = state.params || {mapType: 'standard'}
+        const props = {
+            mode: 'dropdown',
+            style: {width: 100,color:'white'},
+            selectedValue: state.params.mapType,
+            onValueChange: mapType => setParams({mapType}),
+        }
+        return {
+            title: '高德地图',
+            headerRight: (
+                <Picker {...props}>
+                    <Picker.Item label="标准" value="standard"/>
+                    <Picker.Item label="卫星" value="satellite"/>
+                    <Picker.Item label="导航" value="navigation"/>
+                    <Picker.Item label="夜间" value="night"/>
+                    <Picker.Item label="公交" value="bus"/>
+                </Picker>
+            ),
+        }
+    }
 
     constructor() {
         super();
@@ -117,6 +137,7 @@ export default class Amap3dTestScreen extends Component {
                          showsLocationButton={this.state.showsLocationButton}
                          showsZoomControls={this.state.showsZoomControls}
                          style={styles.map}
+                         mapType={this.props.navigation.state.params.mapType}
                 >
                     <MapView.Marker
                         draggable
