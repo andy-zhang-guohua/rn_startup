@@ -1,5 +1,16 @@
 import React, {Component} from 'react';
-import {Alert, Button, Image, Platform, StyleSheet, Switch, Text, TouchableOpacity, View,Dimensions} from 'react-native';
+import {
+    Alert,
+    Button,
+    Image,
+    Platform,
+    StyleSheet,
+    Switch,
+    Text,
+    TouchableOpacity,
+    View,
+    Dimensions
+} from 'react-native';
 import {MapView} from 'react-native-amap3d'
 
 export default class Amap3dTestScreen extends Component {
@@ -245,7 +256,7 @@ const styles = StyleSheet.create({
     buttons: {
         width: Dimensions.get('window').width,
         position: 'absolute',
-        bottom:4,
+        bottom: 4,
         flexDirection: 'row',
         justifyContent: 'center',
     },
