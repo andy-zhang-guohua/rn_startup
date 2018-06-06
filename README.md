@@ -1,6 +1,8 @@
 # 2018-06-05
 - [引入高德地图](https://github.com/qiuxiang/react-native-amap3d)
-   > 1.在安卓平台实验通过
+    - 在安卓平台实验通过
+    - 参考资料 [React Native 高德地图组件的使用（react-native-amap3d）](https://www.jianshu.com/p/fe90fc6a0308)
+
 # 2018-05-21
 - [react-native-pdf](https://github.com/wonday/react-native-pdf)
 - [react-native-root-toast](https://github.com/magicismight/react-native-root-toast)
