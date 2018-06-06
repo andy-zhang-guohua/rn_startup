@@ -1,3 +1,7 @@
+# 2018-06-06
+- [引入高德地图导航](https://github.com/qiuxiang/react-native-amap-geolocation)
+    - 在安卓平台实验通过
+
 # 2018-06-05
 - [引入高德地图](https://github.com/qiuxiang/react-native-amap3d)
     - 在安卓平台实验通过
@@ -126,7 +130,7 @@ npm i --save react-native-dropdown-menu
 # 2018-03-22
 
 1. 引入 `react-native-fetch-blob`测试文件系统相关功能
-    - [源代码网址和安装指南](https://github.com/wkh237/react-native-fetch-blob)
+    - [源代码网址和安装指南](https://github.com/joltup/react-native-fetch-blob)
     - 在安卓上做实验
         - 列出磁盘使用情况
         - 列出各个目录
