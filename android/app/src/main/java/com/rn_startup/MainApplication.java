@@ -3,6 +3,7 @@ package com.rn_startup;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import cn.qiuxiang.react.geolocation.AMapGeolocationPackage;
 import cn.qiuxiang.react.amap3d.AMap3DPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.github.yamill.orientation.OrientationPackage;
@@ -31,6 +32,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new AMapGeolocationPackage(),
             new AMap3DPackage(),
             new LinearGradientPackage(),
             new OrientationPackage(),

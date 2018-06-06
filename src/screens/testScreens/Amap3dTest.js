@@ -137,9 +137,14 @@ export default class Amap3dTestScreen extends Component {
                          showsZoomControls={this.state.showsZoomControls}
                          style={styles.map}
                          mapType={this.props.navigation.state.params.mapType}
-                         locationInterval={10000}
+                         //locationInterval={10000}
                          distanceFilter={10}
-                         onLocation={({nativeEvent}) => console.log(`当前位置 : ${nativeEvent.latitude}, ${nativeEvent.longitude}`)}
+                         onLocation={
+                             ({nativeEvent}) => {
+                                 console.log(`当前位置 : ${nativeEvent.latitude}, ${nativeEvent.longitude}`);
+                                 console.log(JSON.stringify(nativeEvent));
+                             }
+                         }
                 >
                     <MapView.Marker
                         draggable
