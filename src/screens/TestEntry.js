@@ -63,6 +63,9 @@ class TestEntryScreen extends Component {
         this.props.navigation.navigate('Amap3dTest');
     }
 
+    _gotoAmapGeolocationTestScreen = () => {
+        this.props.navigation.navigate('AmapGeolocationTest');
+    }
 
     render() {
         return (
@@ -102,6 +105,9 @@ class TestEntryScreen extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this._gotoAmap3dTestScreen} style={styles.button}>
                     <Text style={styles.buttonText}> 高德地图 </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this._gotoAmapGeolocationTestScreen} style={styles.button}>
+                    <Text style={styles.buttonText}> 高德地图定位 </Text>
                 </TouchableOpacity>
             </View>
         );

@@ -115,10 +115,24 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
+
+    signingConfigs {
+        rn_amap {
+            storeFile file("rn_amap.jks")
+            storePassword "rn_amap"
+            keyAlias "rn_amap"
+            keyPassword "rn_amap"
+        }
+    }
+
     buildTypes {
+        debug {
+            signingConfig signingConfigs.rn_amap
+        }
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.rn_amap
         }
     }
     // applicationVariants are e.g. debug, release

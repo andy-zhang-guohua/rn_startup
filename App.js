@@ -30,6 +30,7 @@ import Orientation from 'react-native-orientation';
 import ResponderTestScreen from "./src/screens/testScreens/ResponderTest";
 import PanResponderTestScreen from "./src/screens/testScreens/PanResponderTest";
 import Amap3dTestScreen from "./src/screens/testScreens/Amap3dTest";
+import AmapGeolocationTestScreen from "./src/screens/testScreens/AmapGeolocationTest";
 
 // gets the current screen from navigation state
 function getCurrentRouteName(navigationState) {
@@ -63,6 +64,7 @@ const MainStack = StackNavigator(
         ResponderTest: {screen: ResponderTestScreen},
         PanResponderTest: {screen: PanResponderTestScreen},
         Amap3dTest: {screen: Amap3dTestScreen},
+        AmapGeolocationTest: {screen: AmapGeolocationTestScreen},
     },
     {
         initialRouteName: 'Main',
