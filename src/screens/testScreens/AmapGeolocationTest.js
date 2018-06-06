@@ -24,20 +24,22 @@ export default class AmapGeolocationTestScreen extends Component {
     constructor() {
         super();
 
-        this.state = {location: {}}
+        this.state = {location: {}};
+        this.mounted = false;
     }
 
     async componentDidMount() {
+        this.mounted = true;
+
         await Geolocation.init({
             ios: "9bd6c82e77583020a73ef1af59d0c759",
             android: "ab61bced590ceec8037111037f3b2e3c"
-        }).catch((error) => {
-            console.log(error)
         });
+
         Geolocation.setOptions({
             interval: 8000,
             distanceFilter: 20,
-            //reGeocode: true
+            reGeocode: true
         })
         Geolocation.addLocationListener(location =>
             this.updateLocationState(location)
@@ -45,14 +47,17 @@ export default class AmapGeolocationTestScreen extends Component {
     }
 
     componentWillUnmount() {
-        Geolocation.stop()
+        Geolocation.stop();
     }
 
     updateLocationState(location) {
+        if (!this.mounted)
+            return;
+
         if (location) {
             location.timestamp = new Date(location.timestamp).toLocaleString()
-            this.setState({location})
-            console.log(location)
+            this.setState({location});
+            console.log(new Date, `当前位置:`, location)
         }
     }
 
@@ -64,6 +69,7 @@ export default class AmapGeolocationTestScreen extends Component {
         console.log(new Date(), '停止定位');
         Geolocation.stop();
     }
+
     getLastLocation = async () => {
         console.log(new Date(), '获取定位信息', location);
         this.updateLocationState(await Geolocation.getLastLocation());
@@ -86,7 +92,7 @@ export default class AmapGeolocationTestScreen extends Component {
                     />
                 </View>
                 {Object.keys(location).map(key => (
-                    <View style={style.item} key={key}>
+                    <View style={styles.item} key={key}>
                         <Text style={styles.label}>{key}</Text>
                         <Text>{location[key]}</Text>
                     </View>
