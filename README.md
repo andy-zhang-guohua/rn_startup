@@ -3,12 +3,6 @@
 - iOS 上 ios 目录下 pod install 输出结果
 
 ```
-Analyzing dependencies
-Fetching podspec for `React` from `../node_modules/react-native`
-Fetching podspec for `react-native-amap-geolocation` from `../node_modules/react-native-amap-geolocation/lib/ios`
-Fetching podspec for `react-native-amap3d` from `../node_modules/react-native-amap3d/lib/ios`
-Fetching podspec for `yoga` from `../node_modules/react-native/ReactCommon/yoga`
-Downloading dependencies
 Using AMap3DMap (6.1.0)
 Using AMapFoundation (1.5.2)
 Installing AMapLocation (2.6.0)
