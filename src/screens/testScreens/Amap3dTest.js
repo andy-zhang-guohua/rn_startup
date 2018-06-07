@@ -264,13 +264,6 @@ const styles = StyleSheet.create({
             },
             ios: {
                 backgroundColor: '#fff',
-                position: 'absolute',
-                left: 0,
-                right: 0,
-                bottom: 0,
-                borderTopColor: '#e0e0e0',
-                borderTopWidth: StyleSheet.hairlineWidth,
-                zIndex: 1,
             },
         }),
     },
