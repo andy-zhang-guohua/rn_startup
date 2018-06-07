@@ -32,7 +32,7 @@ export default class AmapGeolocationTestScreen extends Component {
         this.mounted = true;
 
         await Geolocation.init({
-            ios: "9bd6c82e77583020a73ef1af59d0c759",
+            ios: "de31b874ffdb7c719d8648cc6fea6f46",
             android: "ab61bced590ceec8037111037f3b2e3c"
         });
 
