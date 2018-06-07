@@ -3,16 +3,23 @@
 - iOS 上 ios 目录下 pod install 输出结果
 
 ```
-Installing AMap3DMap (6.1.0)
-
-Installing AMapFoundation (1.5.2)
-Installing DoubleConversion (1.1.5)
-Installing Folly (2016.09.26.00)
-Installing React (0.55.4)
-Installing boost-for-react-native (1.63.0)
-Installing glog (0.3.4)
-Installing react-native-amap3d (1.0.0)
-Installing yoga (0.55.4.React)
+Analyzing dependencies
+Fetching podspec for `React` from `../node_modules/react-native`
+Fetching podspec for `react-native-amap-geolocation` from `../node_modules/react-native-amap-geolocation/lib/ios`
+Fetching podspec for `react-native-amap3d` from `../node_modules/react-native-amap3d/lib/ios`
+Fetching podspec for `yoga` from `../node_modules/react-native/ReactCommon/yoga`
+Downloading dependencies
+Using AMap3DMap (6.1.0)
+Using AMapFoundation (1.5.2)
+Installing AMapLocation (2.6.0)
+Using DoubleConversion (1.1.5)
+Using Folly (2016.09.26.00)
+Using React (0.55.4)
+Using boost-for-react-native (1.63.0)
+Using glog (0.3.4)
+Installing react-native-amap-geolocation (0.3.0)
+Using react-native-amap3d (1.0.0)
+Using yoga (0.55.4.React)
 
 ```
 
