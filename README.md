@@ -1,3 +1,15 @@
+Installing AMap3DMap (6.1.0)
+
+
+Installing AMapFoundation (1.5.2)
+Installing DoubleConversion (1.1.5)
+Installing Folly (2016.09.26.00)
+Installing React (0.55.4)
+Installing boost-for-react-native (1.63.0)
+Installing glog (0.3.4)
+Installing react-native-amap3d (1.0.0)
+Installing yoga (0.55.4.React
+
 # 2018-06-06
 - [引入高德地图导航](https://github.com/qiuxiang/react-native-amap-geolocation)
     - 在安卓平台实验通过
