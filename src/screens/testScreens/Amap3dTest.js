@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+    ActionSheetIOS,
     Alert,
     Button,
     Dimensions,
@@ -14,28 +15,27 @@ import {
 } from 'react-native';
 import {MapView} from 'react-native-amap3d'
 
+const mapTypes = [
+    {label: '标准', key: 'standard'},
+    {label: '卫星', key: 'satellite'},
+    {label: '导航', key: 'navigation'},
+    {label: '夜间', key: 'night'},
+    {label: '公交', key: 'bus'},
+];
 
 const navigationOptionsIOS = ({navigation}) => {
     const {state, setParams} = navigation
     state.params = state.params || {mapType: 'standard'}
-    const props = {
-        mode: 'dropdown',
-        style: {width: 100, color: 'white'},
-        selectedValue: state.params.mapType,
-        onValueChange: mapType => setParams({mapType}),
-    };
+
+    const labels = mapTypes.map(obj => obj.label);
+    labels.push("取消");
     const onPress = () => {
         ActionSheetIOS.showActionSheetWithOptions({
-            options: [
-                '拨打电话',
-                '发送邮件',
-                '发送短信',
-                '取消'
-            ],
-            cancelButtonIndex: 3,
+            options: labels,
+            cancelButtonIndex: labels.length - 1,
             destructiveButtonIndex: 0
         }, function (index) {
-            alert('您刚才点击的按钮索引是：' + index);
+            alert('您刚才点击的按钮索引是：' + index + ":" + labels[index]);
         })
     };
     return {
