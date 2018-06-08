@@ -25,23 +25,32 @@ const mapTypes = [
 
 const navigationOptionsIOS = ({navigation}) => {
     const {state, setParams} = navigation
-    state.params = state.params || {mapType: 'standard'}
+    state.params = state.params || {mapTypeLabel: '标准', mapType: 'standard'}
 
     const labels = mapTypes.map(obj => obj.label);
     labels.push("取消");
+    const selectedMapType = state.params.mapTypeLabel;
     const onPress = () => {
+        const cancelButtonIndex = labels.length - 1;
         ActionSheetIOS.showActionSheetWithOptions({
             options: labels,
-            cancelButtonIndex: labels.length - 1,
+            cancelButtonIndex: cancelButtonIndex,
             destructiveButtonIndex: 0
         }, function (index) {
-            alert('您刚才点击的按钮索引是：' + index + ":" + labels[index]);
+            if (index === cancelButtonIndex)
+                return;
+
+            const mapTypeLabel = labels[index];
+            const mapType = mapTypes.filter((obj) => {
+                return obj.label === mapTypeLabel
+            })[0].key;
+            setParams({mapTypeLabel, mapType});
         })
     };
     return {
         title: '高德地图',
         headerRight: (
-            <Text onPress={onPress}>标准</Text>
+            <Text onPress={onPress}>{selectedMapType}</Text>
         ),
     }
 }
