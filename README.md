@@ -1,4 +1,5 @@
 # 2018-06-08
+- iOS 平台,模拟器和真机上高德地图，定位功能实验通过
 - iOS 平台上构建支持高德地图的应用的注意事项
     - 使用 xcode 进行构建
     - xcode 打开项目方式是打开 ios 目录下的 .xcworkspace 文件，而不是 .xcodeproj 文件
@@ -7,6 +8,10 @@
     - 项目 General->Bundle Identifier 中要设置合理格式的值，一般格式 : com.yunqifu.rn_startup
         - 其中 com.yunqifu 是苹果注册过的，不能变，而第三段rn_startup是根据项目的设定值
 
+- [引入 react-native-modal-picker ](https://github.com/d-a-n/react-native-modal-picker)
+```
+    npm i react-native-modal-picker --save
+```
 # 2018-06-07
 - 为了支持高德地图和定位，iOS 平台上 ios 目录下运行 pod install 输出结果
 
