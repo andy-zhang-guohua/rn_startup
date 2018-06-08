@@ -1,6 +1,14 @@
-# 2018-06-07
+# 2018-06-08
+- iOS 平台上构建支持高德地图的应用的注意事项
+    - 使用 xcode 进行构建
+    - xcode 打开项目方式是打开 ios 目录下的 .xcworkspace 文件，而不是 .xcodeproj 文件
+        - 原因 : 使用了 CocoaPods
+    - 项目 General->Signing 中要设置正确的开发团队信息，证书信息等
+    - 项目 General->Bundle Identifier 中要设置合理格式的值，一般格式 : com.yunqifu.rn_startup
+        - 其中 com.yunqifu 是苹果注册过的，不能变，而第三段rn_startup是根据项目的设定值
 
-- iOS 上 ios 目录下 pod install 输出结果
+# 2018-06-07
+- 为了支持高德地图和定位，iOS 平台上 ios 目录下运行 pod install 输出结果
 
 ```
 Using AMap3DMap (6.1.0)
