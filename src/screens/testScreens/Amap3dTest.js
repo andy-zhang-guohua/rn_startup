@@ -13,34 +13,27 @@ import {
     View
 } from 'react-native';
 import {MapView} from 'react-native-amap3d'
-import ModalPicker from 'react-native-modal-picker'
 
 export default class Amap3dTestScreen extends Component {
     static navigationOptions = ({navigation}) => {
-        const {state, setParams} = navigation;
-        state.params = state.params || {mapType: 'standard'};
-        const mapTyles = [
-            {label: '标准', key: 'standard'},
-            {label: '卫星', key: 'satellite'},
-            {label: '导航', key: 'navigation'},
-            {label: '夜间', key: 'night'},
-            {label: '公交', key: 'bus'},
-        ];
-
+        const {state, setParams} = navigation
+        state.params = state.params || {mapType: 'standard'}
         const props = {
-            data: {mapTyles},
+            mode: 'dropdown',
             style: {width: 100, color: 'white'},
-            initValue: state.params.mapType,
-            onChange: (option) => {
-                alert(`${option.label} (${option.key}) nom nom nom`)
-            },
-            onValueChange: mapType => setParams({mapType})
-        };
+            selectedValue: state.params.mapType,
+            onValueChange: mapType => setParams({mapType}),
+        }
         return {
             title: '高德地图',
             headerRight: (
-                <ModalPicker {...props}>
-                </ModalPicker>
+                <Picker {...props}>
+                    <Picker.Item label="标准" value="standard"/>
+                    <Picker.Item label="卫星" value="satellite"/>
+                    <Picker.Item label="导航" value="navigation"/>
+                    <Picker.Item label="夜间" value="night"/>
+                    <Picker.Item label="公交" value="bus"/>
+                </Picker>
             ),
         }
     }
