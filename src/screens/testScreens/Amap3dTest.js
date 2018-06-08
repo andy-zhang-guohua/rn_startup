@@ -35,8 +35,7 @@ const navigationOptionsIOS = ({navigation}) => {
         ActionSheetIOS.showActionSheetWithOptions({
             options: labels,
             cancelButtonIndex: cancelButtonIndex,
-            //destructiveButtonIndex: 0,
-            title:'地图类型',
+            title: '地图类型',
         }, function (index) {
             if (index === cancelButtonIndex)
                 return;
@@ -51,7 +50,7 @@ const navigationOptionsIOS = ({navigation}) => {
     return {
         title: '高德地图',
         headerRight: (
-            <Text onPress={onPress}>{selectedMapType}</Text>
+            <Text onPress={onPress} style={{width: 100, color: 'white'}}>{selectedMapType}</Text>
         ),
     }
 }
@@ -69,11 +68,11 @@ const navigationOptionsAndroid = ({navigation}) => {
         title: '高德地图',
         headerRight: (
             <Picker {...props}>
-                <Picker.Item label="标准" value="standard"/>
-                <Picker.Item label="卫星" value="satellite"/>
-                <Picker.Item label="导航" value="navigation"/>
-                <Picker.Item label="夜间" value="night"/>
-                <Picker.Item label="公交" value="bus"/>
+                {
+                    mapTypes.map(mt => {
+                        return <Picker.Item label={mt.label} value={mt.key}/>
+                    })
+                }
             </Picker>
         ),
     }
