@@ -4,44 +4,80 @@ import {
     Button,
     Dimensions,
     Image,
+    Picker,
     Platform,
     StyleSheet,
     Switch,
     Text,
-    Picker,
     TouchableOpacity,
     View
 } from 'react-native';
 import {MapView} from 'react-native-amap3d'
 
-export default class Amap3dTestScreen extends Component {
-    static navigationOptions = ({navigation}) => {
-        const {state, setParams} = navigation
-        state.params = state.params || {mapType: 'standard'}
-        const props = {
-            mode: 'dropdown',
-            style: {width: 100, color: 'white'},
-            selectedValue: state.params.mapType,
-            onValueChange: mapType => setParams({mapType}),
-        }
-        return {
-            title: '高德地图',
-            headerRight: (
-                <Picker {...props}>
-                    <Picker.Item label="标准" value="standard"/>
-                    <Picker.Item label="卫星" value="satellite"/>
-                    <Picker.Item label="导航" value="navigation"/>
-                    <Picker.Item label="夜间" value="night"/>
-                    <Picker.Item label="公交" value="bus"/>
-                </Picker>
-            ),
-        }
+
+const navigationOptionsIOS = ({navigation}) => {
+    const {state, setParams} = navigation
+    state.params = state.params || {mapType: 'standard'}
+    const props = {
+        mode: 'dropdown',
+        style: {width: 100, color: 'white'},
+        selectedValue: state.params.mapType,
+        onValueChange: mapType => setParams({mapType}),
+    };
+    const onPress = () => {
+        ActionSheetIOS.showActionSheetWithOptions({
+            options: [
+                '拨打电话',
+                '发送邮件',
+                '发送短信',
+                '取消'
+            ],
+            cancelButtonIndex: 3,
+            destructiveButtonIndex: 0
+        }, function (index) {
+            alert('您刚才点击的按钮索引是：' + index);
+        })
+    };
+    return {
+        title: '高德地图',
+        headerRight: (
+            <Text onPress={onPress}>标准</Text>
+        ),
     }
+}
+
+const navigationOptionsAndroid = ({navigation}) => {
+    const {state, setParams} = navigation
+    state.params = state.params || {mapType: 'standard'}
+    const props = {
+        mode: 'dropdown',
+        style: {width: 100, color: 'white'},
+        selectedValue: state.params.mapType,
+        onValueChange: mapType => setParams({mapType}),
+    }
+    return {
+        title: '高德地图',
+        headerRight: (
+            <Picker {...props}>
+                <Picker.Item label="标准" value="standard"/>
+                <Picker.Item label="卫星" value="satellite"/>
+                <Picker.Item label="导航" value="navigation"/>
+                <Picker.Item label="夜间" value="night"/>
+                <Picker.Item label="公交" value="bus"/>
+            </Picker>
+        ),
+    }
+};
+
+
+export default class Amap3dTestScreen extends Component {
+    static navigationOptions = Platform.OS === 'ios' ? navigationOptionsIOS : navigationOptionsAndroid;
 
     constructor() {
         super();
 
-        this.state = {
+        this
+            .state = {
             time: new Date(),
             showsCompass: false,
             showsScale: true,
