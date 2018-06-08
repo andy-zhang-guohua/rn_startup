@@ -35,7 +35,8 @@ const navigationOptionsIOS = ({navigation}) => {
         ActionSheetIOS.showActionSheetWithOptions({
             options: labels,
             cancelButtonIndex: cancelButtonIndex,
-            destructiveButtonIndex: 0
+            //destructiveButtonIndex: 0,
+            title:'地图类型',
         }, function (index) {
             if (index === cancelButtonIndex)
                 return;
